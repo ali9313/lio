@@ -20,6 +20,7 @@ ID_EDIT = gvarstatus("ID_ET") or "ايدي"
 
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
+
 async def get_user_from_event(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -47,12 +48,16 @@ async def get_user_from_event(event):
             return None
     return user_object
 
-
 async def fetch_info(replied_user, event):
     """Get details from the User object."""
     FullUser = (await event.client(GetFullUserRequest(replied_user.id))).full_user
     replied_user_profile_photos = await event.client(
-        GetUserPhotosRequest(user_id=replied_user.id, offset=42, max_id=0, limit=80)    )
+        GetUserPhotosRequest(user_id=replied_user.id, offset=42, max_id=0, limit=80)
+    )
+    
+    # تعيين القيمة الابتدائية لـ caption
+    caption = ""
+
     replied_user_profile_photos_count = "لايـوجـد بروفـايـل"
     dc_id = "Can't get dc id"
     try:
@@ -69,15 +74,23 @@ async def fetch_info(replied_user, event):
     is_bot = replied_user.bot
     restricted = replied_user.restricted
     verified = replied_user.verified
-    photo = await event.client.download_profile_photo(     user_id,     Config.TMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg",    download_big=True  )
-    first_name = (      first_name.replace("\u2060", "")
+    photo = await event.client.download_profile_photo(
+        user_id,
+        Config.TMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg",
+        download_big=True
+    )
+    first_name = (
+        first_name.replace("\u2060", "")
         if first_name
-        else ("هذا المستخدم ليس له اسم أول")  )
+        else ("هذا المستخدم ليس له اسم أول")
+    )
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
     rotbat = "⌁ مطور السورس 𓄂𓆃 ⌁" if user_id == 232499688 else ("⌁ العضـو 𓅫 ⌁")
-    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 232499688  else rotbat
+    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 232499688 else rotbat
+
+    # إضافة المعلومات إلى caption
     caption += f"<b> {JEP_EM}╎الاسـم    ⇠ </b> {full_name}\n"
     caption += f"<b> {JEP_EM}╎المعـرف  ⇠ </b> {username}\n"
     caption += f"<b> {JEP_EM}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
@@ -102,15 +115,12 @@ async def _(event):
     replied_user = await get_user_from_event(event)
     if not replied_user:
         return
-    catevent = await edit_or_reply(event, " جار إحضار معلومات المستخدم اننظر قليلا ⚒️")
+    catevent = await edit_or_reply(event, " جار إحضار معلومات المستخدم انظر قليلا ⚒️")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     user_id = replied_user.users[0].id
     first_name = html.escape(replied_user.users[0].first_name)
     if first_name is not None:
-        # some weird people (like me) have more than 4096 characters in their
-        # names
         first_name = first_name.replace("\u2060", "")
-    # inspired by https://telegram.dog/afsaI181
     common_chats = 1
     try:
         dc_id, location = get_input_location(replied_user.profile_photo)
@@ -136,7 +146,7 @@ async def _(event):
         else:
             cas = "**Antispam(CAS) Banned :** `False`"
     else:
-        cas = "**Antispam(CAS) Banned :** `Couldn't Fetch`"
+        cas = "**Antispam(CAS) Banned : **`Couldn't Fetch`"
     caption = """**معلومات المسـتخدم[{}](tg://user?id={}):
    ⌔︙⚕️ الايدي: **`{}`
    ⌔︙👥**المجموعات المشتركه : **`{}`
