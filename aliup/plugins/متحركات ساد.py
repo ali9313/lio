@@ -1,12 +1,9 @@
-#edit  ~ @lMl10l for l313l 
 
 from telethon import events
-from JoKeRUB.utils import admin_cmd
-from JoKeRUB import l313l
+from aliup.utils import admin_cmd
+from aliup import l313l
 from . import *
  
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
-
 plugin_category = "extra"
 @l313l.ar_cmd(
     pattern="س1$",
@@ -22,9 +19,6 @@ async def tmgif(event):
         l313l += f"**الـمتحـرڪـة الأولـى **"
         await event.client.send_file(event.chat_id, sad, caption=l313l, reply_to=lMl10l)
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
-
 @l313l.ar_cmd(
     pattern="س2$",
     command=("س2", plugin_category),
@@ -39,9 +33,6 @@ async def tmgif(event):
         RAZAN += f"**الـمتحـرڪـة الـثـانيـة **"
         await event.client.send_file(event.chat_id, sad2, caption=RAZAN, reply_to=leo)
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
-
 @l313l.ar_cmd(
     pattern="س3$",
     command=("س3", plugin_category),
@@ -55,9 +46,6 @@ async def tmgif(event):
         RAZAN += f"✛━━━━━━━━━━━━━✛\n"
         RAZAN += f"**الـمتحـرڪـة الـثـالثـة**\n"
         await event.client.send_file(event.chat_id, sad3, caption=RAZAN, reply_to=sic_id)
-
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="س4$",
@@ -75,8 +63,6 @@ async def tmgif(event):
             event.chat_id, sad4, caption=RAZAN, reply_to=reply_to_id
         )
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="س5$",
@@ -95,8 +81,6 @@ async def tmgif(event):
             event.chat_id, sad5, caption=RAZAN, reply_to=reply_to_id
         )
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="س6$",
@@ -114,9 +98,6 @@ async def tmgif(event):
         await event.client.send_file(
             event.chat_id, sad6, caption=RAZAN, reply_to=reply_to_id
         )
-
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="س7$",
@@ -166,5 +147,3 @@ async def tmgif(event):
         await event.client.send_file(
             event.chat_id, sad9, caption=RAZAN, reply_to=reply_to_id
         )
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
