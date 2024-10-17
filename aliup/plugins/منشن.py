@@ -1,7 +1,5 @@
-# By Reda for JoKeRUB
-# Tel: @rd0r0
-# شعندك داخل للملف تريد تخمطة ههههههههه اخمط ونسبة لنفسك ماوصيك :*
-from JoKeRUB import l313l
+
+from aliup import l313l
 import asyncio
 import time
 from ..core.managers import edit_or_reply
@@ -18,10 +16,10 @@ mention_in_progress = False
 async def menall(event):
     chat_id = event.chat_id
     if event.is_private:
-        return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+        return await edit_or_reply(event, "**  هذا الامر يستعمل للقنوات والمجموعات فقط !**")
     msg = event.pattern_match.group(1)
     if not msg:
-        return await edit_or_reply(event, "** ᯽︙ ضع رسالة للمنشن اولاً**")
+        return await edit_or_reply(event, "**  ضع رسالة للمنشن اولاً**")
     is_admin = False
     try:
         partici_ = await l313l(GetParticipantRequest(
@@ -47,18 +45,18 @@ async def menall(event):
 @l313l.ar_cmd(pattern="الغاء منشن")
 async def ca_sp(event):
   if not event.chat_id in spam_chats:
-    return await edit_or_reply(event, "** ᯽︙ 🤷🏻 لا يوجد منشن لألغائه**")
+    return await edit_or_reply(event, "**  🤷🏻 لا يوجد منشن لألغائه**")
   else:
     try:
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await edit_or_reply(event, "** ᯽︙ تم الغاء المنشن بنجاح ✓**")
+    return await edit_or_reply(event, "**  تم الغاء المنشن بنجاح ✓**")
 @l313l.ar_cmd(pattern="تاك(?:\s|$)([\s\S]*)")
 async def Hussein(event):
     global mention_in_progress
     if mention_in_progress:
-        await event.edit("᯽︙ تم الغاء عملية التاك بنجاح ✅")
+        await event.edit(" تم الغاء عملية التاك بنجاح ✅")
         mention_in_progress = False
         return
     mention_in_progress = True
@@ -69,7 +67,7 @@ async def Hussein(event):
     total_participants = len(participants)
     message = event.pattern_match.group(1)
     if not message:
-        await event.edit("**᯽︙ يُرجى وضع الرسالة مع التاك لتنبيه الأعضاء بهذه الرسالة**")
+        await event.edit("** يُرجى وضع الرسالة مع التاك لتنبيه الأعضاء بهذه الرسالة**")
         mention_in_progress = False
         return
     mention = ""
@@ -94,7 +92,7 @@ async def Hussein(event):
 async def Hussein(event):
     global mention_in_progress
     if mention_in_progress:
-        await event.edit("**᯽︙ تم الغاء عملية التاك بنجاح ✅**")
+        await event.edit("** تم الغاء عملية التاك بنجاح ✅**")
         mention_in_progress = False
     else:
-        await event.edit("**᯽︙ 🤷🏻 لاتوجد عملية تاك في هذه المجموعة **")
+        await event.edit("** 🤷🏻 لاتوجد عملية تاك في هذه المجموعة **")
