@@ -29,7 +29,6 @@ from .pluginmanager import load_module
 from .tools import create_supergroup
 LOGS = logging.getLogger("ali")
 logging.getLogger('telethon').setLevel(logging.WARNING)
-##Reda hands here
 cmdhr = Config.COMMAND_HAND_LER
 bot = l313l
 ENV = bool(os.environ.get("ENV", False))
@@ -98,8 +97,9 @@ async def startupmessage():
         if BOTLOG:
             Config.CATUBLOGO = await l313l.tgbot.send_file(
                 BOTLOG_CHATID,
-                caption="**︙ بــوت ꪖꪶ𝓲 يـعـمـل بـنـجـاح ✓ \n᯽︙ أرسل `.الاوامر`لرؤية اوامر السورس **",
-                buttons=[(Button.url("سورس ꪖꪶ𝓲", "https://t.me/n_u_7"),)],
+                "https://t.me/MemeSoundJep/24",
+                caption="**‏بــوت ꪖꪶ𝓲 يـعـمـل بـنـجـاح ✓ \n أرسل `.الاوامر`لرؤية اوامر السورس **",
+                buttons=[(Button.url("سورس ꪖꪶ𝓲", "https://t.me/u_gg_u"),)],
             )
     except Exception as e:
         LOGS.error(e)
@@ -115,7 +115,7 @@ async def startupmessage():
         if msg_details:
             await l313l.check_testcases()
             message = await l313l.get_messages(msg_details[0], ids=msg_details[1])
-            text = message.text + "\n\n**تم تشغيل البوت **"
+            text = message.text + "\n\n**تم تشغيل البوت الأن أرسل `.فحص`**"
             await l313l.edit_message(msg_details[0], msg_details[1], text)
             if gvarstatus("restartupdate") is not None:
                 await l313l.send_message(
@@ -133,20 +133,20 @@ async def startupmessage():
 async def mybot():
     try:
         starkbot = await l313l.tgbot.get_me()
-        joker = "ꪖꪶ𝓲"
+        ali = "علي"
         bot_name = starkbot.first_name
         botname = f"@{starkbot.username}"
         if bot_name.endswith("Assistant"):
             print("تم تشغيل البوت")
         if starkbot.bot_inline_placeholder:
-            print("Ali ForEver")
+            print("Aljoker ForEver")
         else:
             try:
                 await l313l.send_message("@BotFather", "/setinline")
                 await asyncio.sleep(1)
                 await l313l.send_message("@BotFather", botname)
                 await asyncio.sleep(1)
-                await l313l.send_message("@BotFather", joker)
+                await l313l.send_message("@BotFather", ali)
                 await asyncio.sleep(2)
             except Exception as e:
                 print(e)
@@ -299,9 +299,9 @@ async def verifyLoggerGroup():
                 + str(e)
             )
     else:
-        descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - "
+        descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @u_gg_u"
         photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon.JPEG")
-        botlog_group_id = await ali_the_best(l313l, "مجموعة أشعارات علي")
+        botlog_group_id = await aljoker_the_best(l313l, "مجموعة أشعارات علي")
         if botlog_group_id:
             addgvar("PRIVATE_GROUP_BOT_API_ID", botlog_group_id)
             print("تم العثور على مجموعة المساعدة بالفعل وإضافتها إلى المتغيرات.")
@@ -313,7 +313,7 @@ async def verifyLoggerGroup():
             print("تم إنشاء مجموعة المسـاعدة بنجاح وإضافتها إلى المتغيرات.")
         flag = True
     if PM_LOGGER_GROUP_ID == -100:
-        descript = " وظيفه الكروب يحفظ رسائل الخاص اذا ما تريد الامر احذف الكروب نهائي "
+        descript = " وظيفه الكروب يحفظ رسائل الخاص اذا ما تريد الامر احذف الكروب نهائي \n  - @u_gg_u"
         photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon2.JPEG")
         pm_logger_group_id = await ali_the_best(l313l, "مجموعة التخزين")
         if pm_logger_group_id:
@@ -336,7 +336,7 @@ async def install_externalrepo(repo, branch, cfolder):
     aliREPO = repo
     rpath = os.path.join(cfolder, "requirements.txt")
     if aliBRANCH := branch:
-        repourl = os.path.join(aliREPO, f"tree/{aliBRANCH}")
+        repourl = os.path.join(jokerREPO, f"tree/{aliBRANCH}")
         gcmd = f"git clone -b {aliBRANCH} {aliREPO} {cfolder}"
         errtext = f"لا يوحد فرع بأسم `{aliBRANCH}` في الريبو الخارجي {aliREPO}. تاكد من اسم الفرع عبر فار (`EXTERNAL_REPO_BRANCH`)"
     else:
