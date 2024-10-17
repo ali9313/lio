@@ -21,7 +21,7 @@ BASE_YT_URL = "https://www.youtube.com/watch?v="
 YOUTUBE_REGEX = re.compile(
     r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})"
 )
-PATH = "./JoKeRUB/cache/ytsearch.json"
+PATH = "./aliup/cache/ytsearch.json"
 
 song_dl = "yt-dlp --force-ipv4 --write-thumbnail --add-metadata --embed-thumbnail -o './temp/%(title)s.%(ext)s' --extract-audio --audio-format mp3 --audio-quality {QUALITY} {video_link}"
 
@@ -32,11 +32,11 @@ name_dl = (
 )
 
 
-async def yt_search(JoKeRUB):
+async def yt_search(aliup):
     try:
-        JoKeRUB = urllib.parse.quote(JoKeRUB)
+        aliup = urllib.parse.quote(aliup)
         html = urllib.request.urlopen(
-            f"https://www.youtube.com/results?search_query={JoKeRUB}"
+            f"https://www.youtube.com/results?search_query={aliup}"
         )
 
         user_data = re.findall(r"watch\?v=(\S{11})", html.read().decode())
@@ -91,8 +91,8 @@ class YT_Search_X:
 ytsearch_data = YT_Search_X()
 
 """
-async def yt_data(JoKeRUB):
-    params = {"format": "json", "url": JoKeRUB}
+async def yt_data(aliup):
+    params = {"format": "json", "url": aliup}
     url = "https://www.youtube.com/oembed"  # https://stackoverflow.com/questions/29069444/returning-the-urls-as-a-list-from-a-youtube-search-query
     query_string = urllib.parse.urlencode(params)
     url = f"{url}?{query_string}"
