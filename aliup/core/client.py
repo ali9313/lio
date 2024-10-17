@@ -130,7 +130,7 @@ class HuReClient(TelegramClient):
                                   \nwe logged only fact of error and date,\nwe respect your privacy,\
                                   \nyou may not report this error if you've\
                                   \nany confidential data here, no one will see your data\
-                                  \n\n--------BEGIN JoKeRUB TRACEBACK LOG--------\
+                                  \n\n--------BEGIN aliup TRACEBACK LOG--------\
                                   \nDate: {date}\nGroup ID: {str(check.chat_id)}\
                                   \nSender ID: {str(check.sender_id)}\
                                   \nMessage Link: {await check.client.get_msg_link(check)}\
@@ -245,7 +245,7 @@ class HuReClient(TelegramClient):
                                     \nwe logged only fact of error and date,\nwe respect your privacy,\
                                     \nyou may not report this error if you've\
                                     \nany confidential data here, no one will see your data\
-                                    \n\n--------BEGIN JoKeRUB TRACEBACK LOG--------\
+                                    \n\n--------BEGIN aliup TRACEBACK LOG--------\
                                     \nDate: {date}\nGroup ID: {str(check.chat_id)}\
                                     \nSender ID: {str(check.sender_id)}\
                                     \nMessage Link: {await check.client.get_msg_link(check)}\
