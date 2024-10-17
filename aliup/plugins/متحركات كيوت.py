@@ -1,13 +1,8 @@
-#edit  ~ @lMl10l for l313l 
 
 from telethon import events
-from JoKeRUB.utils import admin_cmd
-from JoKeRUB import l313l
+from aliup.utils import admin_cmd
+from aliup import l313l
 from . import *
-
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
-
 
 plugin_category = "extra"
 @l313l.ar_cmd(
@@ -24,8 +19,6 @@ async def tmgif(event):
         l313l += f"**الـمتحـرڪـة الأولـى **"
         await event.client.send_file(event.chat_id, cute, caption=l313l, reply_to=ROZ)
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك2$",
@@ -41,8 +34,6 @@ async def tmgif(event):
         RAZAN += f"**الـمتحـرڪـة الـثـانيـة **\n"
         await event.client.send_file(event.chat_id, cute2, caption=RAZAN, reply_to=leo)
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك3$",
@@ -58,8 +49,6 @@ async def tmgif(event):
         RAZAN += f"**الـمتحـرڪـة الـثـالثـة**\n"
         await event.client.send_file(event.chat_id, cute3, caption=RAZAN, reply_to=sic_id)
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك4$",
@@ -77,8 +66,6 @@ async def tmgif(event):
             event.chat_id, cute4, caption=RAZAN, reply_to=reply_to_id
         )
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك5$",
@@ -97,9 +84,6 @@ async def tmgif(event):
             event.chat_id, cute5, caption=RAZAN, reply_to=reply_to_id
         )
 
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
-
 @l313l.ar_cmd(
     pattern="ك6$",
     command=("ك6", plugin_category),
@@ -116,9 +100,6 @@ async def tmgif(event):
         await event.client.send_file(
             event.chat_id, cute6, caption=RAZAN, reply_to=reply_to_id
         )
-
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك7$",
@@ -137,5 +118,3 @@ async def tmgif(event):
         )
     
        
-#edit  ~ @lMl10l for l313l 
-#جميع الحقوق محفوظة لسـورس الجوكر تخـمط تبيـن فشلـك   
