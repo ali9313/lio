@@ -20,11 +20,11 @@ if Config.PLUGIN_CHANNEL:
         for module in range(total):
             plugin_to_install = documentss[module].id
             plugin_name = documentss[module].file.name
-            if os.path.exists(f"JoKeRUB/plugins/{plugin_name}"):
+            if os.path.exists(f"aliup/plugins/{plugin_name}"):
                 return
             downloaded_file_name = await l313l.download_media(
                 await l313l.get_messages(Config.PLUGIN_CHANNEL, ids=plugin_to_install),
-                "JoKeRUB/plugins/",
+                "aliup/plugins/",
             )
             path1 = Path(downloaded_file_name)
             shortname = path1.stem
@@ -42,7 +42,7 @@ if Config.PLUGIN_CHANNEL:
             if BOTLOG:
                 await l313l.send_message(
                     BOTLOG_CHATID,
-                    f"᯽︙ تـم تـنصـيب المـلف `{os.path.basename(downloaded_file_name)}` بـناج ✅.",
+                    f" تـم تـنصـيب المـلف `{os.path.basename(downloaded_file_name)}` بـناج ✅.",
                 )
 
     l313l.loop.create_task(install())
