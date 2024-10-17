@@ -2,7 +2,7 @@ import sys
 from asyncio.exceptions import CancelledError
 from time import sleep
 import asyncio
-from JoKeRUB import l313l
+from aliup import l313l
 from telethon import events
 
 from ..core.logger import logging
@@ -18,7 +18,7 @@ from . import BOTLOG, BOTLOG_CHATID, HEROKU_APP
 LOGS = logging.getLogger(__name__)
 plugin_category = "tools"
 
-JOKRDEV = [1374312239, 393120911, 705475246,5564802580]
+aliDEV = [232499688]
 
 @l313l.ar_cmd(
     pattern="اعادة تشغيل$",
@@ -32,8 +32,8 @@ JOKRDEV = [1374312239, 393120911, 705475246,5564802580]
 async def _(event):
     "Restarts the bot !!"
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "**⌔︙الجوكر ↻** \n" "**᯽︙ تم اعادة تشغيل السورس بنجاح ✅ ↻**")
-    lMl10l = await edit_or_reply(event, "᯽︙ سيتم اعادة التشغيل انتظر ")
+        await event.client.send_message(BOTLOG_CHATID, "**⌔︙ꪖꪶ𝓲 ↻** \n" "** تم اعادة تشغيل السورس بنجاح ✅ ↻**")
+    lMl10l = await edit_or_reply(event, " سيتم اعادة التشغيل انتظر ")
     await event.edit("0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
     await asyncio.sleep(2)
     await event.edit("4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
@@ -50,7 +50,7 @@ async def _(event):
     await asyncio.sleep(2)
     await event.edit("100%\n████████████████████████")
     await asyncio.sleep(2)
-    await event.edit("**᯽︙ تم اعادة تشغيل بنجاح ✓ \nانتظر 2-5 دقائق**")
+    await event.edit("** تم اعادة تشغيل بنجاح ✓ \nانتظر 2-5 دقائق**")
     await asyncio.sleep(2)
     try:
         ulist = get_collectionlist_items()
@@ -84,8 +84,8 @@ async def _(event):
 async def _(event):
     "Shutdowns the bot"
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "**᯽︙ إيقاف التشغيـل ✕ **\n" "**᯽︙ تـم إيقـاف تشغيـل البـوت بنجـاح ✓**")
-    await edit_or_reply(event, "**᯽︙ جـاري إيقـاف تشغيـل البـوت الآن ..**\n᯽︙  **أعـد تشغيـلي يدويـاً لاحقـاً عـبر هيـروڪو ..**\n⌔︙**سيبقى البـوت متوقفـاً عن العمـل**")
+        await event.client.send_message(BOTLOG_CHATID, "** إيقاف التشغيـل ✕ **\n" "** تـم إيقـاف تشغيـل البـوت بنجـاح ✓**")
+    await edit_or_reply(event, "** جـاري إيقـاف تشغيـل البـوت الآن ..**\n᯽︙  **أعـد تشغيـلي يدويـاً لاحقـاً عـبر هيـروڪو ..**\n⌔︙**سيبقى البـوت متوقفـاً عن العمـل**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -95,7 +95,7 @@ async def _(event):
     pattern="التحديثات (تشغيل|ايقاف)$",
     command=("التحديثات", plugin_category),
     info={
-        "header": "᯽︙ لتحديـث الدردشـة بعـد إعـادة التشغيـل  أو إعـادة التحميـل  ",
+        "header": " لتحديـث الدردشـة بعـد إعـادة التشغيـل  أو إعـادة التحميـل  ",
         "description": "⌔︙سيتـم إرسـال بنـك cmds ڪـرد على الرسالـة السابقـة الأخيـرة لـ (إعادة تشغيل/إعادة تحميل/تحديث cmds) 💡.",
         "usage": [
             "{tr}التحديثات <تشغيل/ايقاف",
@@ -103,25 +103,25 @@ async def _(event):
     },
 )
 async def set_pmlog(event):
-    "᯽︙ لتحديـث الدردشـة بعـد إعـادة التشغيـل  أو إعـادة التحميـل  "
+    " لتحديـث الدردشـة بعـد إعـادة التشغيـل  أو إعـادة التحميـل  "
     input_str = event.pattern_match.group(1)
     if input_str == "ايقاف":
         if gvarstatus("restartupdate") is None:
-            return await edit_delete(event, "**᯽︙ تـم تعطيـل التـحديـثات بالفعـل ❗️**")
+            return await edit_delete(event, "** تـم تعطيـل التـحديـثات بالفعـل ❗️**")
         delgvar("restartupdate")
         return await edit_or_reply(event, "**⌔︙تـم تعطيـل التـحديـثات بنجـاح ✓**")
     if gvarstatus("restartupdate") is None:
         addgvar("restartupdate", "turn-oned")
         return await edit_or_reply(event, "**⌔︙تـم تشغيل التـحديـثات بنجـاح ✓**")
-    await edit_delete(event, "**᯽︙ تـم تشغيل التـحديـثات بالفعـل ❗️**")
+    await edit_delete(event, "** تـم تشغيل التـحديـثات بالفعـل ❗️**")
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.reply_to and event.sender_id in JOKRDEV:
+    if event.reply_to and event.sender_id in aliDEV:
         reply_msg = await event.get_reply_message()
         owner_id = reply_msg.from_id
         if owner_id == l313l.uid:
             if event.message.message == "اعادة تشغيل":
-                lMl10l = await event.reply("**᯽︙ سيتم اعادة التشغيل بأمر من المطور **")
+                lMl10l = await event.reply("** سيتم اعادة التشغيل بأمر من المطور **")
                 try:
                     ulist = get_collectionlist_items()
                     for i in ulist:
@@ -143,12 +143,12 @@ async def Hussein(event):
                     
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.reply_to and event.sender_id in JOKRDEV:
+    if event.reply_to and event.sender_id in aliDEV:
         reply_msg = await event.get_reply_message()
         owner_id = reply_msg.from_id.user_id
         if owner_id == l313l.uid:
             if event.message.message == "اطفاء":
-                    await event.reply("**᯽︙ تدلل مولاي تم اطفاء السورس بواسطة تاج راسك 😁**")
+                    await event.reply("** تدلل مولاي تم اطفاء السورس بواسطة تاج راسك 😁**")
                     if HEROKU_APP is not None:
                         HEROKU_APP.process_formation()["worker"].scale(0)
                     else:
