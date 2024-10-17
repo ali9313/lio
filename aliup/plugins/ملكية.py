@@ -1,9 +1,9 @@
-# Copyright (C) 2021 JoKeRUB TEAM
+
 
 import telethon.password as pwd_mod
 from telethon.tl import functions
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..Config import Config
 
@@ -19,7 +19,6 @@ plugin_category = "utils"
         "usage": "{tr}otransfer <username to whom you want to transfer>",
     },
 )
-# For JoKeRUB
 
 async def _(event):
     "To transfer channel ownership"
@@ -35,4 +34,4 @@ async def _(event):
     except Exception as e:
         await event.edit(f"**خـطأ:**\n`{str(e)}`")
     else:
-        await event.edit("᯽︙ تم نقل المـلكية بنـجاح ✅")
+        await event.edit(" تم نقل المـلكية بنـجاح ✅")
