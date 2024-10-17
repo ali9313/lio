@@ -57,7 +57,7 @@ async def check_dyno_type():
 
 async def setup_bot():
     """
-    To set up bot for JoKeRUB
+    To set up bot for aliup
     """
     try:
         await l313l.connect()
@@ -315,7 +315,7 @@ async def verifyLoggerGroup():
     if PM_LOGGER_GROUP_ID == -100:
         descript = " وظيفه الكروب يحفظ رسائل الخاص اذا ما تريد الامر احذف الكروب نهائي "
         photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon2.JPEG")
-        pm_logger_group_id = await aljoker_the_best(l313l, "مجموعة التخزين")
+        pm_logger_group_id = await ali_the_best(l313l, "مجموعة التخزين")
         if pm_logger_group_id:
             addgvar("PM_LOGGER_GROUP_ID", pm_logger_group_id)
             print("تـم العثور على مجموعة الكروب التخزين بالفعل واضافة الـفارات الـيها.")
