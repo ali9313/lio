@@ -5,12 +5,12 @@ from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.tl.functions.messages import ExportChatInviteRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..sql_helper.autopost_sql import add_post, get_all_post, is_post, remove_post
-from JoKeRUB.core.logger import logging
+from aliup.core.logger import logging
 from ..sql_helper.globals import gvarstatus
 from . import BOTLOG, BOTLOG_CHATID
 from . import *
@@ -45,58 +45,58 @@ async def get_user_from_event(event):
 @l313l.on(admin_cmd(pattern="(نشر_تلقائي|النشر_التلقائي)"))
 async def _(event):
     if (event.is_private or event.is_group):
-        return await edit_or_reply(event, "**᯽︙ عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
-    jok = event.pattern_match.group(1)
-    if not jok:
-        return await edit_or_reply(event, "**᯽︙ عـذراً .. قـم بـ إضـافة معـرف/ايـدي القنـاة الى الامـر اولاً**")
-    if jok.startswith("@"):
-        JoKeRUB = jok
+        return await edit_or_reply(event, "** عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
+    al = event.pattern_match.group(1)
+    if not al:
+        return await edit_or_reply(event, "** عـذراً .. قـم بـ إضـافة معـرف/ايـدي القنـاة الى الامـر اولاً**")
+    if al.startswith("@"):
+        aliup = al
     elif jok.startswith("https://t.me/"):
-        JoKeRUB = jok.replace("https://t.me/", "@")
-    elif str(jok).startswith("-100"):
-        JoKeRUB = str(jok).replace("-100", "")
+        aliup = al.replace("https://t.me/", "@")
+    elif str(al).startswith("-100"):
+        aliup = str(al).replace("-100", "")
     else:
         try:
-            JoKeRUB = int(jok)
+            aliup = int(al)
         except BaseException:
-            return await edit_or_reply(event, "**᯽︙ عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
+            return await edit_or_reply(event, "** عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
     try:
-        JoKeRUB = (await event.client.get_entity(JoKeRUB)).id
+        aliup = (await event.client.get_entity(aliup)).id
     except BaseException:
-        return await event.reply("**᯽︙ عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
-    if is_post(str(JoKeRUB) , event.chat_id):
-        return await edit_or_reply(event, "**᯽︙ النشـر التلقـائي من القنـاة ** `{jok}` **مفعـل مسبقـاً ✓**")
-    add_post(str(JoKeRUB), event.chat_id)
-    await edit_or_reply(event, f"**᯽︙ تم تفعيـل النشـر التلقـائي من القنـاة ** `{jok}` **بنجـاح ✓**")
+        return await event.reply("** عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
+    if is_post(str(aliup) , event.chat_id):
+        return await edit_or_reply(event, "** النشـر التلقـائي من القنـاة ** `{al}` **مفعـل مسبقـاً ✓**")
+    add_post(str(aliup), event.chat_id)
+    await edit_or_reply(event, f"** تم تفعيـل النشـر التلقـائي من القنـاة ** `{al}` **بنجـاح ✓**")
 
 
 
 @l313l.on(admin_cmd(pattern="(ايقاف_نشر|ايقاف_النشر)"))
 async def _(event):
     if (event.is_private or event.is_group):
-        return await edit_or_reply(event, "**᯽︙ عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
-    jok = event.pattern_match.group(1)
-    if not jok:
-        return await edit_or_reply(event, "**᯽︙ عـذراً .. قـم بـ إضـافة معـرف/ايـدي القنـاة الى الامـر اولاً**")
-    if jok.startswith("@"):
-        JoKeRUB = jok
-    elif jok.startswith("https://t.me/"):
-        JoKeRUB = jok.replace("https://t.me/", "@")
-    elif str(jok).startswith("-100"):
-        JoKeRUB = str(jok).replace("-100", "")
+        return await edit_or_reply(event, "** عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
+    al = event.pattern_match.group(1)
+    if not al:
+        return await edit_or_reply(event, "** عـذراً .. قـم بـ إضـافة معـرف/ايـدي القنـاة الى الامـر اولاً**")
+    if al.startswith("@"):
+        aliup = al
+    elif al.startswith("https://t.me/"):
+        aliup = al.replace("https://t.me/", "@")
+    elif str(al).startswith("-100"):
+        aliup = str(al).replace("-100", "")
     else:
         try:
-            JoKeRUB = int(jok)
+            aliup = int(al)
         except BaseException:
-            return await edit_or_reply(event, "**᯽︙ عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
+            return await edit_or_reply(event, "** عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
     try:
-        JoKeRUB = (await event.client.get_entity(JoKeRUB)).id
+        aliup = (await event.client.get_entity(aliup)).id
     except BaseException:
-        return await event.reply("**᯽︙ عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
-    if not is_post(str(JoKeRUB), event.chat_id):
-        return await edit_or_reply(event, "**᯽︙ تم تعطيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**")
-    remove_post(str(JoKeRUB), event.chat_id)
-    await edit_or_reply(event, f"**᯽︙ تم ايقـاف النشـر التلقـائي من** `{jok}`")
+        return await event.reply("** عـذراً .. معـرف/ايـدي القنـاة غيـر صـالح**\n**✾╎الرجـاء التـأكـد مـن المعـرف/الايـدي**")
+    if not is_post(str(aliup), event.chat_id):
+        return await edit_or_reply(event, "** تم تعطيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**")
+    remove_post(str(aliup), event.chat_id)
+    await edit_or_reply(event, f"** تم ايقـاف النشـر التلقـائي من** `{al}`")
 
 
 @l313l.ar_cmd(incoming=True, forword=None)
