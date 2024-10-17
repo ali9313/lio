@@ -139,7 +139,7 @@ async def mybot():
         if bot_name.endswith("Assistant"):
             print("تم تشغيل البوت")
         if starkbot.bot_inline_placeholder:
-            print("Aljoker ForEver")
+            print("ali ForEver")
         else:
             try:
                 await l313l.send_message("@BotFather", "/setinline")
@@ -301,7 +301,7 @@ async def verifyLoggerGroup():
     else:
         descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @u_gg_u"
         photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon.JPEG")
-        botlog_group_id = await aljoker_the_best(l313l, "مجموعة أشعارات علي")
+        botlog_group_id = await ali_the_best(l313l, "مجموعة أشعارات علي")
         if botlog_group_id:
             addgvar("PRIVATE_GROUP_BOT_API_ID", botlog_group_id)
             print("تم العثور على مجموعة المساعدة بالفعل وإضافتها إلى المتغيرات.")
@@ -336,7 +336,7 @@ async def install_externalrepo(repo, branch, cfolder):
     aliREPO = repo
     rpath = os.path.join(cfolder, "requirements.txt")
     if aliBRANCH := branch:
-        repourl = os.path.join(jokerREPO, f"tree/{aliBRANCH}")
+        repourl = os.path.join(aliREPO, f"tree/{aliBRANCH}")
         gcmd = f"git clone -b {aliBRANCH} {aliREPO} {cfolder}"
         errtext = f"لا يوحد فرع بأسم `{aliBRANCH}` في الريبو الخارجي {aliREPO}. تاكد من اسم الفرع عبر فار (`EXTERNAL_REPO_BRANCH`)"
     else:
