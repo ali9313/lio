@@ -1,5 +1,4 @@
 
-#Reda
 import asyncio 
 import shutil
 import requests
@@ -12,13 +11,11 @@ import time
 from datetime import timedelta
 import math
 import base64
-from JoKeRUB import l313l 
-#from ..Config import Config
-#By Reda
-@l313l.ar_cmd(pattern="تك")
+from aliup import l313l 
+@l313l.ar_cmd(pattern="تيك")
 async def tiktok_dl(event):
     ms = event.message.message
-    ms = ms.replace(".تك", "")
+    ms = ms.replace(".تيك", "")
     if event:
             if ("https://tiktok.com/" in ms or "https://vm.tiktok.com/" in ms):
                 await event.message.delete()
@@ -43,7 +40,7 @@ async def tiktok_dl(event):
                 except Exception as er:
                     if 'video_no_watermark' in str(er):
                         return await a.edit("**رابط الفيديو غير صحيح تأكد منه واعد المحاولة**")
-                    return await a.edit(f"حدث خطأ قم بتوجيه الرسالة الى مطوري @rd0r0\n{er}")
+                    return await a.edit(f"حدث خطأ قم بتوجيه الرسالة الى مطوري @n_u_7\n{er}")
             
             
                 
