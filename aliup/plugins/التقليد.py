@@ -1,8 +1,3 @@
-"""
-created by @lMl10l
-Idea by @jepthon
-"""
-
 
 from ..core.managers import edit_delete, edit_or_reply
 from ..sql_helper.echo_sql import (
@@ -40,8 +35,8 @@ async def echo(event):
     user, rank = await get_user_from_event(event, catevent, nogroup=True)
     if not user:
         return
-    if user.id == 705475246:
-        return await edit_delete(event, "**᯽︙ لا يمڪنني تقليد مطـوري لك فاشل **")
+    if user.id == 232499688:
+        return await edit_delete(event, "** لا يمڪنني تقليد مطـوري لك فاشل **")
     reply_msg = await event.get_reply_message()
     chat_id = event.chat_id
     user_id = reply_msg.sender_id
@@ -58,7 +53,7 @@ async def echo(event):
     try:
         addecho(chat_id, user_id, chat_name, user_name, user_username, chat_type)
     except Exception as e:
-        await edit_delete(catevent, f"᯽︙ Error:\n`{str(e)}`")
+        await edit_delete(catevent, f" Error:\n`{str(e)}`")
     else:
         await edit_or_reply(catevent, "⌁︙تـم تفعـيل امـر التقليد علـى هذا الشـخص\n ⌁︙سـيتم تقليـد جميع رسائلـه هـنا")
 
@@ -85,7 +80,7 @@ async def echo(event):
         try:
             remove_echo(chat_id, user_id)
         except Exception as e:
-            await edit_delete(catevent, f"᯽︙ Error:\n`{str(e)}`")
+            await edit_delete(catevent, f" Error:\n`{str(e)}`")
         else:
             await edit_or_reply(event, "Echo has been stopped for the user")
     else:
@@ -117,7 +112,7 @@ async def echo(event):
         try:
             remove_all_echos()
         except Exception as e:
-            await edit_delete(event, f"᯽︙ خطأ:\n`{str(e)}`", 10)
+            await edit_delete(event, f" خطأ:\n`{str(e)}`", 10)
         else:
             await edit_or_reply(
                 event, "⌁︙تـم ايقاف وضـع الازعاج على الجميع بنجاح ،✅ ."
