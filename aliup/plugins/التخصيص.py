@@ -1,8 +1,8 @@
 import re
 import os
 import requests
-from JoKeRUB import l313l
-from JoKeRUB.core.logger import logging
+from aliup import l313l
+from aliup.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
@@ -270,7 +270,7 @@ async def alive_aljoker(event):
             if os.path.exists(hussein):
                 os.remove(hussein)
     else:
-        await event.edit("**᯽︙ يُرجى الرد على الصورة لطفًا**")
+        await event.edit("** يُرجى الرد على الصورة لطفًا**")
 @l313l.ar_cmd(pattern="اضف صورة (البنك|بنك) ?(.*)")
 async def ping_aljoker(event):
     reply = await event.get_reply_message()
@@ -300,7 +300,7 @@ async def ping_aljoker(event):
             if os.path.exists(hussein):
                 os.remove(hussein)
     else:
-        await event.edit("**᯽︙ يُرجى الرد على الصورة لطفًا**")
+        await event.edit("** يُرجى الرد على الصورة لطفًا**")
 @l313l.ar_cmd(pattern="اضف صورة (الحماية|الحمايه|حماية|حمايه) ?(.*)")
 async def secu_aljoker(event):
     reply = await event.get_reply_message()
@@ -330,7 +330,7 @@ async def secu_aljoker(event):
             if os.path.exists(hussein):
                 os.remove(hussein)
     else:
-        await event.edit("**᯽︙ يُرجى الرد على الصورة لطفًا**")
+        await event.edit("** يُرجى الرد على الصورة لطفًا**")
 @l313l.ar_cmd(pattern="اضف صورة (الخاص|خاص) ?(.*)")
 async def khas_aljoker(event):
     reply = await event.get_reply_message()
@@ -360,4 +360,4 @@ async def khas_aljoker(event):
             if os.path.exists(hussein):
                 os.remove(hussein)
     else:
-        await event.edit("**᯽︙ يُرجى الرد على الصورة لطفًا**")
+        await event.edit("** يُرجى الرد على الصورة لطفًا**")
