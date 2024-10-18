@@ -3,7 +3,7 @@ from telethon.errors.rpcerrorlist import UserAdminInvalidError, UserIdInvalidErr
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.managers import edit_or_reply
 from ..helpers.utils import _format
@@ -12,8 +12,8 @@ from . import BOTLOG, BOTLOG_CHATID, extract_time, get_user_from_event
 plugin_category = "admin"
 
 # =================== CONSTANT ===================
-NO_ADMIN = "**᯽︙  عذرا انا لست مشرف في المجموعة ❕**"
-NO_PERM = "**᯽︙ يبـدو انه ليس لديك صلاحيات كافية هذا حزين جدا 🥱♥**"
+NO_ADMIN = "**  عذرا انا لست مشرف في المجموعة ❕**"
+NO_PERM = "** يبـدو انه ليس لديك صلاحيات كافية هذا حزين جدا 🥱♥**"
 
 joker_t8ed = "https://telegra.ph/file/2eca302f6e4a1198792ec.jpg"
 joker_unt8ed = "https://telegra.ph/file/b5d3498a825632e7716e3.jpg"
@@ -46,7 +46,7 @@ async def tmuter(event):  # sourcery no-metrics
     if not user:
         return
     if not reason:
-        return await event.edit("᯽︙ انـت لم تقـم بـوضـع وقـت مع الامـر")
+        return await event.edit(" انـت لم تقـم بـوضـع وقـت مع الامـر")
     reason = reason.split(" ", 1)
     hmm = len(reason)
     cattime = reason[0].strip()
@@ -55,7 +55,7 @@ async def tmuter(event):  # sourcery no-metrics
     if not ctime:
         return
     if user.id == event.client.uid:
-        return await event.edit(f"᯽︙ عـذرا لا يمـكننـي حـظر نفـسي ")
+        return await event.edit(f" عـذرا لا يمـكننـي حـظر نفـسي ")
     try:
         await event.client(
             EditBannedRequest(
@@ -69,7 +69,7 @@ async def tmuter(event):  # sourcery no-metrics
             await event.client.send_file(
                 event.chat_id,
                 joker_t8ed,
-                caption=f"᯽︙ تم تقييد المستخدم {_format.mentionuser(user.first_name ,user.id)} بنجاح ✅\n ᯽︙السبب  : {reason}\n ** ᯽︙ مدة الكتم : **`{cattime}`",
+                caption=f" تم تقييد المستخدم {_format.mentionuser(user.first_name ,user.id)} بنجاح ✅\n السبب  : {reason}\n ** ᯽︙ مدة الكتم : **`{cattime}`",
             )
             if BOTLOG:
                 await event.client.send_message(
@@ -84,7 +84,7 @@ async def tmuter(event):  # sourcery no-metrics
             await event.client.send_file(
                 event.chat_id,
                 joker_t8ed,
-                caption=f"**᯽︙ تم تقييد المستخدم {_format.mentionuser(user.first_name ,user.id)} بنجاح ✓** \n** ᯽︙ مدة الكتم : **`{cattime}`",
+                caption=f"** تم تقييد المستخدم {_format.mentionuser(user.first_name ,user.id)} بنجاح ✓** \n**  مدة الكتم : **`{cattime}`",
             )
             if BOTLOG:
                 await event.client.send_message(
@@ -129,12 +129,12 @@ async def tmuter(event):  # sourcery no-metrics
 )
 async def tban(event):  # sourcery no-metrics
     "لحـظر شخص مع وقـت معيـن"
-    catevent = await edit_or_reply(event, "᯽︙ يتـم  الـحظر مؤقـتا أنتـظر **")
+    catevent = await edit_or_reply(event, " يتـم  الـحظر مؤقـتا أنتـظر **")
     user, reason = await get_user_from_event(event, catevent)
     if not user:
         return
     if not reason:
-        return await catevent.edit("᯽︙ يبدو انك لم تقم بوضع وقت مع الامر **")
+        return await catevent.edit(" يبدو انك لم تقم بوضع وقت مع الامر **")
     reason = reason.split(" ", 1)
     hmm = len(reason)
     cattime = reason[0].strip()
@@ -143,8 +143,8 @@ async def tban(event):  # sourcery no-metrics
     if not ctime:
         return
     if user.id == event.client.uid:
-        return await catevent.edit(f"᯽︙ عذرا لا يمكنني كتم نفسـي")
-    await catevent.edit("᯽︙ تـم حـظره مـؤقـتا")
+        return await catevent.edit(f" عذرا لا يمكنني كتم نفسـي")
+    await catevent.edit(" تـم حـظره مـؤقـتا")
     try:
         await event.client(
             EditBannedRequest(
@@ -155,7 +155,7 @@ async def tban(event):  # sourcery no-metrics
         )
     except UserAdminInvalidError:
         return await catevent.edit(
-            "᯽︙ ** يبـدو أنك لسـت مشرف في المجموعة او تحاول كتم مشـرف هنا**"
+            " ** يبـدو أنك لسـت مشرف في المجموعة او تحاول كتم مشـرف هنا**"
         )
     except BadRequestError:
         return await catevent.edit(NO_PERM)
@@ -166,7 +166,7 @@ async def tban(event):  # sourcery no-metrics
             await reply.delete()
     except BadRequestError:
         return await catevent.edit(
-            "᯽︙ ** لـيس لدي صلاحيـات الحذف لكن سيبقى محظور ❕**"
+            " ** لـيس لدي صلاحيـات الحذف لكن سيبقى محظور ❕**"
         )
     # Delete message and then tell that the command
     # is done gracefully
@@ -248,7 +248,7 @@ async def T8ed_Joker(event):
             await event.client.send_file(
                 event.chat_id,
                 joker_t8ed,
-                caption=f"᯽︙تم تقييد المستخدم بنجاح ✓ : {_format.mentionuser(user.first_name ,user.id)} ",
+                caption=f"تم تقييد المستخدم بنجاح ✓ : {_format.mentionuser(user.first_name ,user.id)} ",
             )
             if BOTLOG:
                 await event.client.send_message(
@@ -296,7 +296,7 @@ async def cancel_t8ed(event):
         await event.client.send_file(
             event.chat_id,
             joker_unt8ed,
-            caption=f"**᯽︙ تم الغاء تقييد المستخدم {_format.mentionuser(user.first_name, user.id)} بنجاح ✅.**"
+            caption=f"** تم الغاء تقييد المستخدم {_format.mentionuser(user.first_name, user.id)} بنجاح ✅.**"
         )
     except UserIdInvalidError:
         return await event.client.send_message(event.chat_id, "يبدو أن التقييد على هذا المستخدم تم إلغاؤه بالفعل.")
