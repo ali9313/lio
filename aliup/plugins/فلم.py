@@ -1,12 +1,10 @@
-#JoKeRUB ©
-#By Reda telegram: @rd0r0
 
 from telethon.tl.custom import Button
 from cryptography.fernet import Fernet
 import requests
 from html_telegraph_poster.upload_images import upload_image
 import random
-from JoKeRUB import l313l
+from aliup import l313l
 import asyncio
 from ..core.managers import edit_delete, edit_or_reply
 
@@ -80,7 +78,6 @@ async def rfilm(event):
 
 
     
-#Reda
 
 @l313l.ar_cmd(pattern="مسلسل")
 async def rfilm(event):
