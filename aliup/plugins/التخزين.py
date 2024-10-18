@@ -1,7 +1,7 @@
 import asyncio
 
-from JoKeRUB import l313l
-from JoKeRUB.core.logger import logging
+from aliup import l313l
+from aliup.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_delete
