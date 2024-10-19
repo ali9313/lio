@@ -22,9 +22,9 @@ async def findpkg(event):
     pkgname = event.pattern_match.group(1)
     try:
          imp.find_module(pkgname)
-         await edit_or_reply(event, f"᯽︙ الباكج موجود ✓\n{pkgname}")
+         await edit_or_reply(event, f" الباكج موجود ✓\n{pkgname}")
     except ImportError:
-         await edit_or_reply(event, f"᯽︙ الباكج غير موجود X \n{pkgname}")
+         await edit_or_reply(event, f" الباكج غير موجود X \n{pkgname}")
 
 @l313l.ar_cmd(
     pattern="تنصيب$",
@@ -41,7 +41,7 @@ async def install(event):
         try:
             downloaded_file_name = await event.client.download_media(
                 await event.get_reply_message(),
-                "JoKeRUB/plugins/",
+                "aliup/plugins/",
             )
             if "(" not in downloaded_file_name:
                 path1 = Path(downloaded_file_name)
@@ -49,7 +49,7 @@ async def install(event):
                 load_module(shortname.replace(".py", ""))
                 await edit_delete(
                     event,
-                    f"᯽︙ تـم تثبيـت المـلف `{os.path.basename(downloaded_file_name)}`",
+                    f" تـم تثبيـت المـلف `{os.path.basename(downloaded_file_name)}`",
                     10,
                 )
             else:
@@ -76,10 +76,10 @@ async def install(event):
 async def unload(event):
     "To uninstall a plugin."
     shortname = event.pattern_match.group(1)
-    path = Path(f"JoKeRUB/plugins/{shortname}.py")
+    path = Path(f"aliup/plugins/{shortname}.py")
     if not os.path.exists(path):
         return await edit_delete(
-            event, f"᯽︙ لا يوجد هكذا ملف مع المسار {path} لحذفه"
+            event, f" لا يوجد هكذا ملف مع المسار {path} لحذفه"
         )
     os.remove(path)
     if shortname in CMD_LIST:
@@ -90,6 +90,6 @@ async def unload(event):
         CMD_HELP.pop(shortname)
     try:
         remove_plugin(shortname)
-        await edit_or_reply(event, f"᯽︙ {shortname} تم الغاء تثبيت الملف بنجاح")
+        await edit_or_reply(event, f" {shortname} تم الغاء تثبيت الملف بنجاح")
     except Exception as e:
-        await edit_or_reply(event, f"᯽︙ تم الغاء التثبيت بنجاح {shortname}\n{str(e)}")
+        await edit_or_reply(event, f" تم الغاء التثبيت بنجاح {shortname}\n{str(e)}")
