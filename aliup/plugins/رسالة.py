@@ -1,4 +1,3 @@
-#هسه يجي واحد يكلك الملف كتابتي ثق بالله محد مطور كله خمط من سورسات هندية ويعربون ويصيحون من كتابتي ههه
 
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from telethon.utils import get_display_name
@@ -24,7 +23,7 @@ LOGS = logging.getLogger(__name__)
             "{tr}رسالة <username/chatid/chatusername> او بالرد على الرسالة",
             "{tr}رسالة <username/userid/chatid/chatusername> <text>",
         ],
-        "examples": "{tr}رسالة @jepthon حي الله  ان",
+        "examples": "{tr}رسالة @u_gg_u هلا",
     },
 )
 async def catbroadcast_add(event):
