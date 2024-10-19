@@ -89,7 +89,7 @@ async def fetch_info(replied_user, event):
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
     rotbat = "⌁ مطور السورس 𓄂𓆃 ⌁" if user_id == 232499688 else ("⌁ العضـو 𓅫 ⌁")
     rotbat = "⌁ مطور " if user_id == 7182427468 else ("⌁ العضـو 𓅫 ⌁")
-    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and useand user_idr_id != 232499688 and useand user_idr_id != 7182427468 else rotbat
+    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 232499688 and user_id != 7182427468 else rotbat
 
     # إضافة المعلومات إلى caption
     caption += f"<b> {JEP_EM}╎الاسـم    ⇠ </b> {full_name}\n"
