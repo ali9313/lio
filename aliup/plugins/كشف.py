@@ -16,7 +16,7 @@ from ..helpers import get_user_from_event, reply_id
 from . import spamwatch
 
 JEP_EM = Config.ID_EM or " •❃ "
-ID_EDIT = gvarstatus("ID_ET") or "ايدي"
+ID_EDIT = gvarstatus("ID_ET") or "ايدي" or "ا"
 
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
@@ -88,7 +88,8 @@ async def fetch_info(replied_user, event):
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
     rotbat = "⌁ مطور السورس 𓄂𓆃 ⌁" if user_id == 232499688 else ("⌁ العضـو 𓅫 ⌁")
-    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 232499688 else rotbat
+    rotbat = "⌁ مطور " if user_id == 7182427468 else ("⌁ العضـو 𓅫 ⌁")
+    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and useand user_idr_id != 232499688 and useand user_idr_id != 7182427468 else rotbat
 
     # إضافة المعلومات إلى caption
     caption += f"<b> {JEP_EM}╎الاسـم    ⇠ </b> {full_name}\n"
