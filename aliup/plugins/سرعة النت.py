@@ -6,7 +6,7 @@ from time import time
 
 import speedtest
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.managers import edit_or_reply
 from ..helpers.utils import reply_id
@@ -95,7 +95,7 @@ async def _(event):
             await event.client.send_file(
                 event.chat_id,
                 speedtest_image,
-                caption="᯽︙ سـرعة الـنت انتهت\n᯽︙ استغـرقت {} من الـثواني".format(ms),
+                caption=" سـرعة الـنت انتهت\n᯽︙ استغـرقت {} من الـثواني".format(ms),
                 force_document=as_document,
                 reply_to=reply_msg_id,
                 allow_cache=False,
@@ -103,12 +103,12 @@ async def _(event):
             await event.delete()
     except Exception as exc:
         await catevent.edit(
-            """᯽︙ سـرعة الـنت انتهت\n᯽︙ استغـرقت {} من الـثواني
+            """ سـرعة الـنت انتهت\n᯽︙ استغـرقت {} من الـثواني
 الـتحميل: {} (or) {} MB/s
 الـرفع: {} (or) {} MB/s
 الـبنك: {} ms
 
-᯽︙ مع الاخطاء التالية
+ مع الاخطاء التالية
 {}""".format(
                 ms,
                 convert_from_bytes(download_speed),
