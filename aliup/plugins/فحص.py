@@ -42,7 +42,7 @@ async def amireallyalive(event):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "⿻┊‌‎"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "✯"
     me = await l313l.get_me()
     first_name = me.first_name
     mention = first_name
@@ -87,11 +87,9 @@ async def amireallyalive(event):
         )
 
 
-temp = """{ALIVE_TEXT}
-**‎{EMOJI}‌‎𝙽𝙰𝙼𝙴  {mention}** ٫
-**‌‎{EMOJI}‌‎𝙿𝚈𝚃𝙷𝙾𝙽  `{pyver}`** ٫
-**‌‎{EMOJI}‌‎ꪖꪶ𝓲 `{telever}`** ٫
-**‌‎{EMOJI}‌‎𝚄𝙿𝚃𝙸𝙼𝙴  `{uptime}`** ٫
-‌‎**{EMOJI}‌‎‌‎𝙿𝙸𝙽𝙶  `{ping}`** ٫
-‌‎**{EMOJI}‌‎‌‎𝚂𝙴𝚃𝚄𝙿 𝙳𝙰𝚃𝙴  `{Tare5}`** ٫
-** ꪖꪶ𝓲 𝘂𝘀𝗲𝗿𝗯𝗼𝘁 **"""
+temp = """{EMOJI}‌𝐍a𝐦e          ┊‌‎‌‎`{mention}`
+{EMOJI}‌𝐏y𝐭𝗵o𝐧        ┊‌‎‌‎`{pyver}`
+{EMOJI}‌S𝗼u𝗿ce        ┊‌‎‌‎`{telever}`
+{EMOJI}‌𝘂p𝘁i𝗺e        ┊‌‎‌‎`{uptime}`
+{EMOJI}‌piᑎg            ┊‌‎‌‎`{ping}`
+{EMOJI}‌𝗦e𝘁𝘂p Da𝘁e ┊‌`{Tare5}`"""
