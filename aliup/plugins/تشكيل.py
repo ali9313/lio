@@ -1,8 +1,8 @@
 import pyfiglet
-from JoKeRUB import l313l
-from JoKeRUB.helpers.utils import _format
-from JoKeRUB.core.managers import edit_delete, edit_or_reply
-from JoKeRUB.plugins import _format, l313l, deEmojify
+from aliup import l313l
+from aliup.helpers.utils import _format
+from aliup.core.managers import edit_delete, edit_or_reply
+from aliup.plugins import _format, l313l, deEmojify
 
 plugin_category = "utils"
 
