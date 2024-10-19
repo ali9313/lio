@@ -7,8 +7,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.utils import get_input_location
 from ..sql_helper.globals import gvarstatus
 
-from JoKeRUB import l313l
-from JoKeRUB.core.logger import logging
+from aliup import l313l
+from aliup.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_or_reply
@@ -101,7 +101,7 @@ async def _(event):
     replied_user = await get_user_from_event(event)
     if not replied_user:
         return
-    catevent = await edit_or_reply(event, "᯽︙ جار إحضار معلومات المستخدم اننظر قليلا ⚒️")
+    catevent = await edit_or_reply(event, " جار إحضار معلومات المستخدم اننظر قليلا ⚒️")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     user_id = replied_user.users[0].id
     first_name = html.escape(replied_user.users[0].first_name)
@@ -181,8 +181,6 @@ async def who(event):
         await cat.delete()
     except TypeError:
         await cat.edit(caption, parse_mode="html")
-#كـتابة  @lMl10l
-#تعديل وترتيب  @lMl10l
 @l313l.ar_cmd(
     pattern="رابط الحساب(?:\s|$)([\s\S]*)",
     command=("رابط الحساب", plugin_category),
@@ -222,17 +220,17 @@ async def _(event):
         try:
             if p.first_name:
                 return await edit_or_reply(
-                    event, f"᯽︙ ايدي المستخدم : `{input_str}` هو `{p.id}`"
+                    event, f" ايدي المستخدم : `{input_str}` هو `{p.id}`"
                 )
         except Exception:
             try:
                 if p.title:
                     return await edit_or_reply(
-                        event, f"᯽︙ ايدي الدردشة/القناة `{p.title}` هو `{p.id}`"
+                        event, f" ايدي الدردشة/القناة `{p.title}` هو `{p.id}`"
                     )
             except Exception as e:
                 LOGS.info(str(e))
-        await edit_or_reply(event, "᯽︙ يـجب كـتابة مـعرف الشـخص او الـرد عـليه")
+        await edit_or_reply(event, " يـجب كـتابة مـعرف الشـخص او الـرد عـليه")
     elif event.reply_to_msg_id:
         await event.get_input_chat()
         r_msg = await event.get_reply_message()
@@ -240,16 +238,15 @@ async def _(event):
             bot_api_file_id = pack_bot_file_id(r_msg.media)
             await edit_or_reply(
                 event,
-                f"᯽︙ ايدي الدردشه: `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` \n᯽︙ ايدي الميديا: `{bot_api_file_id}`",
+                f" ايدي الدردشه: `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` \n᯽︙ ايدي الميديا: `{bot_api_file_id}`",
             )
         else:
             await edit_or_reply(
                 event,
-               f"᯽︙ ايدي الدردشه : `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` ",
+               f" ايدي الدردشه : `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` ",
             )
     else:
-        await edit_or_reply(event, f"᯽︙ الـدردشـة الـحالية : `{str(event.chat_id)}`")
-#by Reda For aljoker 🤡
+        await edit_or_reply(event, f" الـدردشـة الـحالية : `{str(event.chat_id)}`")
 @l313l.ar_cmd(
     pattern=r"كشف_ايدي(?: (\d+))?$",
     command=("كشف_ايدي", "utils"),
@@ -268,7 +265,7 @@ async def get_user_info(event):
             await edit_or_reply(event, message)
         
         except Exception as e:
-            await edit_or_reply(event, "**᯽︙ غير موجود ** ")
+            await edit_or_reply(event, "** غير موجود ** ")
     
     else:
-        await edit_or_reply(event, "**᯽︙ ضع ايدي الشخص عزيزي **")
+        await edit_or_reply(event, "** ضع ايدي الشخص عزيزي **")
