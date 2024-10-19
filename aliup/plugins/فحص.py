@@ -87,9 +87,9 @@ async def amireallyalive(event):
         )
 
 
-temp = """{EMOJI}‌𝐍a𝐦e          ┊‌‎‌‎`{mention}`
-{EMOJI}‌𝐏y𝐭𝗵o𝐧        ┊‌‎‌‎`{pyver}`
-{EMOJI}‌S𝗼u𝗿ce        ┊‌‎‌‎`{telever}`
-{EMOJI}‌𝘂p𝘁i𝗺e        ┊‌‎‌‎`{uptime}`
-{EMOJI}‌piᑎg            ┊‌‎‌‎`{ping}`
-{EMOJI}‌𝗦e𝘁𝘂p Da𝘁e ┊‌`{Tare5}`"""
+temp = """{EMOJI}‌𝐍a𝐦e          {mention}
+{EMOJI}‌𝐏y𝐭𝗵o𝐧        {pyver}
+{EMOJI}‌S𝗼u𝗿ce        {telever}
+{EMOJI}‌𝘂p𝘁i𝗺e        {uptime}
+{EMOJI}‌piᑎg            {ping}
+{EMOJI}‌𝗦e𝘁𝘂p Da𝘁e {Tare5}"""
