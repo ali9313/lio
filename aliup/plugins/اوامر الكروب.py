@@ -1,4 +1,4 @@
-#aljokrr
+
 from asyncio import sleep
 import asyncio
 import requests
@@ -34,7 +34,7 @@ from telethon.tl.types import (
     InputPeerChat,
     MessageEntityCustomEmoji,
 )
-from JoKeRUB import l313l
+from aliup import l313l
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from datetime import datetime
 from telethon.tl.functions.channels import GetParticipantRequest
@@ -106,7 +106,7 @@ async def remoteaccess(event):
 )
 async def kickme(leave):
     "to leave the group."
-    await leave.edit("᯽︙  حسنا سأغادر المجموعه وداعا ")
+    await leave.edit("  حسنا سأغادر المجموعه وداعا ")
     await leave.client.kick_participant(leave.chat_id, "me")
 
 @l313l.ar_cmd(
@@ -129,7 +129,7 @@ async def _(event):
     )
     if not result.participant.admin_rights.ban_users:
         return await edit_or_reply(
-            event, "᯽︙ - يبدو انه ليس لديك صلاحيات الحذف في هذه الدردشة "
+            event, " - يبدو انه ليس لديك صلاحيات الحذف في هذه الدردشة "
         )
     admins = await event.client.get_participants(
         event.chat_id, filter=ChannelParticipantsAdmins
@@ -148,7 +148,7 @@ async def _(event):
             LOGS.info(str(e))
             await sleep(0.5)
     await event.reply(
-        f"᯽︙  تم بنجاح طرد من {total} الاعضاء ✅ "
+        f"  تم بنجاح طرد من {total} الاعضاء ✅ "
     )
 
 @l313l.ar_cmd(
@@ -171,7 +171,7 @@ async def _(event):
     )
     if not result:
         return await edit_or_reply(
-            event, "᯽︙ - يبدو انه ليس لديك صلاحيات الحذف في هذه الدردشة ❕"
+            event, " - يبدو انه ليس لديك صلاحيات الحذف في هذه الدردشة ❕"
         )
     admins = await event.client.get_participants(
         event.chat_id, filter=ChannelParticipantsAdmins
@@ -191,7 +191,7 @@ async def _(event):
         except Exception as e:
             LOGS.info(str(e))
     await event.reply(
-        f"᯽︙  تم بنجاح حظر من {total} الاعضاء ✅ "
+        f"  تم بنجاح حظر من {total} الاعضاء ✅ "
     )
 
 
@@ -211,7 +211,7 @@ async def _(event):
 async def _(event):
     "To unban all banned users from group."
     catevent = await edit_or_reply(
-        event, "**᯽︙ يتـم الـغاء حـظر الجـميع فـي هذه الـدردشـة**"
+        event, "** يتـم الـغاء حـظر الجـميع فـي هذه الـدردشـة**"
     )
     succ = 0
     total = 0
@@ -243,11 +243,11 @@ async def _(event):
             try:
                 if succ % 10 == 0:
                     await catevent.edit(
-                        f"᯽︙  الغاء حظر جميع الحسابات\nتم الغاء حظر جميع الاعضاء بنجاح ✅"
+                        f"  الغاء حظر جميع الحسابات\nتم الغاء حظر جميع الاعضاء بنجاح ✅"
                     )
             except MessageNotModifiedError:
                 pass
-    await catevent.edit(f"᯽︙ الغاء حظر :__{succ}/{total} في الدردشه {chat.title}__")
+    await catevent.edit(f" الغاء حظر :__{succ}/{total} في الدردشه {chat.title}__")
 
 # Ported by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)
 @l313l.ar_cmd(
@@ -264,17 +264,17 @@ async def rm_deletedacc(show):
     "To check deleted accounts and clean"
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "᯽︙  لم يتم العثور على حسابات متروكه او حسابات محذوفة الكروب نظيف"
+    del_status = "  لم يتم العثور على حسابات متروكه او حسابات محذوفة الكروب نظيف"
     if con != "اطردهم":
         event = await edit_or_reply(
-            show, "᯽︙  يتم البحث عن حسابات محذوفة او حسابات متروكة انتظر"
+            show, "  يتم البحث عن حسابات محذوفة او حسابات متروكة انتظر"
         )
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(0.5)
         if del_u > 0:
-            del_status = f"᯽︙ تـم العـثور : **{del_u}** على حسابات محذوفة ومتروكه في هذه الدردشه من الحسابات في هذه الدردشه,\
+            del_status = f" تـم العـثور : **{del_u}** على حسابات محذوفة ومتروكه في هذه الدردشه من الحسابات في هذه الدردشه,\
                            \nاطردهم بواسطه  `.المحذوفين اطردهم`"
         await event.edit(del_status)
         return
@@ -285,7 +285,7 @@ async def rm_deletedacc(show):
         await edit_delete(show, "أنا لسـت مشرف هـنا", 5)
         return
     event = await edit_or_reply(
-        show, "᯽︙ جاري حذف الحسابات المحذوفة"
+        show, " جاري حذف الحسابات المحذوفة"
     )
     del_u = 0
     del_a = 0
@@ -296,7 +296,7 @@ async def rm_deletedacc(show):
                 await sleep(0.5)
                 del_u += 1
             except ChatAdminRequiredError:
-                await edit_delete(event, "᯽︙  ليس لدي صلاحيات الحظر هنا", 5)
+                await edit_delete(event, "  ليس لدي صلاحيات الحظر هنا", 5)
                 return
             except UserAdminInvalidError:
                 del_a += 1
@@ -318,7 +318,7 @@ async def rm_deletedacc(show):
 async def banall(event):
      chat_id = event.chat_id
      if event.is_private:
-         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+         return await edit_or_reply(event, "**  هذا الامر يستعمل للقنوات والمجموعات فقط !**")
      msg = "حظر"
      is_admin = False
      try:
@@ -348,7 +348,7 @@ async def banall(event):
 @l313l.ar_cmd(pattern="كتم_الكل(?:\s|$)([\s\S]*)")
 async def muteall(event):
      if event.is_private:
-         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+         return await edit_or_reply(event, "**  هذا الامر يستعمل للقنوات والمجموعات فقط !**")
      msg = "كتم"
      is_admin = False
      try:
@@ -379,7 +379,7 @@ async def muteall(event):
 async def kickall(event):
      chat_id = event.chat_id
      if event.is_private:
-         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+         return await edit_or_reply(event, "**  هذا الامر يستعمل للقنوات والمجموعات فقط !**")
      msg = "طرد"
      is_admin = False
      try:
@@ -409,13 +409,13 @@ async def kickall(event):
 @l313l.ar_cmd(pattern="الغاء التفليش")
 async def ca_sp(event):
   if not event.chat_id in spam_chats:
-    return await edit_or_reply(event, "** ᯽︙ 🤷🏻 لا يوجد طرد او حظر او كتم لأيقافه**")
+    return await edit_or_reply(event, "**  🤷🏻 لا يوجد طرد او حظر او كتم لأيقافه**")
   else:
     try:
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await edit_or_reply(event, "** ᯽︙ تم الغاء العملية بنجاح ✓**")
+    return await edit_or_reply(event, "**  تم الغاء العملية بنجاح ✓**")
 @l313l.ar_cmd(
     pattern="احصائيات الاعضاء ?([\s\S]*)",
     command=("احصائيات الاعضاء", plugin_category),
@@ -462,7 +462,7 @@ async def _(event):  # sourcery no-metrics
                 if status:
                     c += 1
                 else:
-                    await et.edit("᯽︙  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
+                    await et.edit("  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
                     e.append(str(e))
                     break
         if isinstance(i.status, UserStatusLastMonth):
@@ -472,7 +472,7 @@ async def _(event):  # sourcery no-metrics
                 if status:
                     c += 1
                 else:
-                    await et.edit("᯽︙  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
+                    await et.edit("  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
                     e.append(str(e))
                     break
         if isinstance(i.status, UserStatusLastWeek):
@@ -482,7 +482,7 @@ async def _(event):  # sourcery no-metrics
                 if status:
                     c += 1
                 else:
-                    await et.edit("᯽︙  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
+                    await et.edit("  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
                     e.append(str(e))
                     break
         if isinstance(i.status, UserStatusOffline):
@@ -490,7 +490,7 @@ async def _(event):  # sourcery no-metrics
             if "o" in input_str:
                 status, e = await ban_user(event.chat_id, i, rights)
                 if not status:
-                    await et.edit("᯽︙  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
+                    await et.edit("  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
                     e.append(str(e))
                     break
                 else:
@@ -500,7 +500,7 @@ async def _(event):  # sourcery no-metrics
             if "q" in input_str:
                 status, e = await ban_user(event.chat_id, i, rights)
                 if not status:
-                    await et.edit("᯽︙  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
+                    await et.edit("  احتاج الى صلاحيات المشرفين للقيام بهذا الامر ")
                     e.append(str(e))
                     break
                 else:
