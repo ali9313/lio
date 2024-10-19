@@ -1,6 +1,6 @@
 import random
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.managers import edit_or_reply
 from . import fonts
