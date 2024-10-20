@@ -6,7 +6,7 @@ from pytz import country_names as c_n
 from pytz import country_timezones as c_tz
 from pytz import timezone as tz
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..Config import Config
 from ..core.managers import edit_or_reply
@@ -14,7 +14,6 @@ from . import reply_id
 
 plugin_category = "utils"
 
-# JoKeRUB timezone
 
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
@@ -74,10 +73,10 @@ async def time_func(tdata):
     else:
         return await edit_or_reply(
             tdata,
-            f"᯽︙ الـساعة الآن {dt.now().strftime(t_form)}\n᯽︙ تـاريـخ اليوم{dt.now().strftime(d_form)}",
+            f" الـساعة الآن {dt.now().strftime(t_form)}\n تـاريـخ اليوم{dt.now().strftime(d_form)}",
         )
     if not timezones:
-        return await edit_or_reply(tdata,  "᯽︙ الـبلد غير صالح")
+        return await edit_or_reply(tdata,  " الـبلد غير صالح")
     if len(timezones) == 1:
         time_zone = timezones[0]
     elif len(timezones) > 1:
@@ -110,8 +109,6 @@ async def time_func(tdata):
             f"({time_zone} timezone).`",
         )
 
-#كـتابة  @lMl10l
-#تعديل وترتيب  @KiNGBrlin
 @l313l.ar_cmd(
     pattern="الوقت(?:\s|$)([\s\S]*)",
     command=("الوقت", plugin_category),
@@ -125,7 +122,7 @@ async def _(event):
     "To show current time"
     reply_msg_id = await reply_id(event)
     current_time = dt.now().strftime(
-        f"⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n⚡JoKeRUB⚡\n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n   {os.path.basename(Config.TZ)}\n  Time: %I:%M:%S \n  Date: %d.%m.%y \n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡"
+        f"⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n⚡aliup⚡\n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n   {os.path.basename(Config.TZ)}\n  Time: %I:%M:%S \n  Date: %d.%m.%y \n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡"
     )
     input_str = event.pattern_match.group(1)
     if input_str:
