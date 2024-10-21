@@ -1,8 +1,8 @@
 from asyncio import sleep
 import requests
 import json
-from JoKeRUB.helpers.functions.functions import translate
-from JoKeRUB import l313l
+from aliup.helpers.functions.functions import translate
+from aliup import l313l
 from telethon import events, types
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from ..core.managers import edit_delete, edit_or_reply
@@ -91,10 +91,10 @@ async def _(event):
 async def reda(event):
     if gvarstatus("transnow"):
         delgvar("transnow")
-        await edit_delete(event, "**᯽︙ تم تعطيل الترجمه الفورية **")
+        await edit_delete(event, "** تم تعطيل الترجمه الفورية **")
     else:
         addgvar("transnow", "Reda") 
-        await edit_delete(event, "**᯽︙ تم تفعيل الترجمه الفورية**")
+        await edit_delete(event, "** تم تفعيل الترجمه الفورية**")
 
 @l313l.ar_cmd(pattern="لغة الترجمة")
 async def Reda_is_Here(event):
@@ -103,16 +103,15 @@ async def Reda_is_Here(event):
     try:  
         lang = langs[t]
     except BaseException as er:
-        return await edit_delete(event, "**᯽︙ !تأكد من قائمة اللغات. لا يوجد هكذا لغة**")
+        return await edit_delete(event, "** !تأكد من قائمة اللغات. لا يوجد هكذا لغة**")
     addgvar("translang", lang)
-    await edit_delete(event, f"**᯽︙ تم تغير لغة الترجمة الى {lang} بنجاح ✓ **")
+    await edit_delete(event, f"** تم تغير لغة الترجمة الى {lang} بنجاح ✓ **")
 
-# Reda
 @l313l.on(events.NewMessage(outgoing=True))
 async def reda(event):
     if gvarstatus("transnow"):
         if event.media or isinstance(event.media, types.MessageMediaDocument) or isinstance(event.media, types.MessageMediaInvoice):
-            print ("JoKeRUB")
+            print ("aliup")
         else:
             original_message = event.message.message
             translated_message = await gtrans(soft_deEmojify(original_message.strip()), gvarstatus("translang") or "en")
