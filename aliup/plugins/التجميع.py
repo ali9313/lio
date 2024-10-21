@@ -1,11 +1,7 @@
-#by Hussein For JoKeRUB-JoKeRUB
-# Hussein
-# يمنع منعاً باتاً تخمط الملف خلي عندك كرامه ولتسرقة
-# Added some f. by Reda
 
 import asyncio
 import time
-from JoKeRUB import l313l
+from aliup import l313l
 from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -23,18 +19,16 @@ bot_username3 = '@MARKTEBOT'
 bot_username4 = '@qweqwe1919bot'
 bot_username5 = '@xnsex21bot'
 bot_username6 = '@DamKombot'
-JoKeRUB = ['yes']
-ConsoleJoker = Config.T7KM
+aliup = ['yes']
+Consoleali = Config.T7KM
 its_Reham = False
 its_hussein = False
 its_reda = False
 its_joker = False
-#اياثارات الحسين
-#by Aljoker doesn't steal codes Please
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
     if event.message.message.startswith("تجميع المليار") and str(event.sender_id) in ConsoleJoker:
-        await event.reply("**᯽︙سيتم تجميع النقاط من بوت المليار , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+        await event.reply("**سيتم تجميع النقاط من بوت المليار , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username)
         await l313l.send_message(bot_username, '/start')
         await asyncio.sleep(4)
@@ -77,12 +71,12 @@ async def Hussein(event):
 async def Hussein(event):
     if event.message.message.startswith("ايقاف التجميع") and str(event.sender_id) in ConsoleJoker:
         await l313l.send_message(bot_username, "/start")
-        await event.reply("** ᯽︙ تم تعطيل عملية تجميع النقاط بنجاح ✓**")
+        await event.reply("**  تم تعطيل عملية تجميع النقاط بنجاح ✓**")
     
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.message.message.startswith("تجميع الجوكر") and str(event.sender_id) in ConsoleJoker:
-        await event.reply("**᯽︙سيتم تجميع النقاط من بوت الجوكر , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if event.message.message.startswith("تجميع الجوكر") and str(event.sender_id) in Consoleali:
+        await event.reply("**سيتم تجميع النقاط من بوت الجوكر , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username2)
         await l313l.send_message('@A_MAN9300BOT', '/start')
         await asyncio.sleep(2)
@@ -118,8 +112,8 @@ async def Hussein(event):
         await l313l.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.message.message.startswith("تجميع العقاب") and str(event.sender_id) in ConsoleJoker:
-        await event.reply("**᯽︙سيتم تجميع النقاط من بوت العقاب , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if event.message.message.startswith("تجميع العقاب") and str(event.sender_id) in Consoleali:
+        await event.reply("**سيتم تجميع النقاط من بوت العقاب , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username3)
         await l313l.send_message('@MARKTEBOT', '/start')
         await asyncio.sleep(3)
@@ -154,8 +148,8 @@ async def Hussein(event):
         await l313l.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 @l313l.on(events.NewMessage(incoming=True))
 async def Hussein(event):
-    if event.message.message.startswith("تجميع المليون") and str(event.sender_id) in ConsoleJoker:
-        await event.reply("**᯽︙سيتم تجميع النقاط من بوت المليون , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if event.message.message.startswith("تجميع المليون") and str(event.sender_id) in Consoleali:
+        await event.reply("**سيتم تجميع النقاط من بوت المليون , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username4)
         await l313l.send_message('@qweqwe1919bot', '/start')
         await asyncio.sleep(2)
@@ -192,7 +186,7 @@ async def Hussein(event):
 
 @l313l.on(admin_cmd(pattern="(تجميع المليار|تجميع مليار)"))
 async def _(event):
-    await event.edit("**᯽︙سيتم تجميع النقاط من بوت المليار , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    await event.edit("**سيتم تجميع النقاط من بوت المليار , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
     channel_entity = await l313l.get_entity(bot_username)
     await l313l.send_message(bot_username, '/start')
     await asyncio.sleep(4)
@@ -235,12 +229,12 @@ async def _(event):
 @l313l.on(admin_cmd(pattern="(ايقاف التجميع|ايقاف تجميع)"))
 async def cancel_collection(event):
     await l313l.send_message('@EEObot', '/start')
-    await event.edit("** ᯽︙ تم الغاء التجميع من بوت المليار **")
+    await event.edit("**  تم الغاء التجميع من بوت المليار **")
     
 @l313l.on(admin_cmd(pattern="(تجميع الجوكر|تجميع جوكر)"))
 async def _(event):
-    if JoKeRUB[0] == "yes":
-        await event.edit("**᯽︙سيتم تجميع النقاط من بوت الجوكر , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if aliup[0] == "yes":
+        await event.edit("**سيتم تجميع النقاط من بوت الجوكر , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username2)
         await l313l.send_message('@A_MAN9300BOT', '/start')
         await asyncio.sleep(2)
@@ -252,7 +246,7 @@ async def _(event):
 
         chs = 1
         for i in range(100):
-            if JoKeRUB[0] == 'no':
+            if aliup[0] == 'no':
                 break
             await asyncio.sleep(2)
 
@@ -278,8 +272,8 @@ async def _(event):
         await l313l.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 @l313l.on(admin_cmd(pattern="(تجميع العقاب|تجميع عقاب)"))
 async def _(event):
-    if JoKeRUB[0] == "yes":
-        await event.edit("**᯽︙سيتم تجميع النقاط من بوت العقاب , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if aliup[0] == "yes":
+        await event.edit("**سيتم تجميع النقاط من بوت العقاب , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username3)
         await l313l.send_message('@MARKTEBOT', '/start')
         await asyncio.sleep(3)
@@ -291,7 +285,7 @@ async def _(event):
 
         chs = 1
         for i in range(100):
-            if JoKeRUB[0] == 'no':
+            if aliup[0] == 'no':
                 break
             await asyncio.sleep(3)
 
@@ -317,8 +311,8 @@ async def _(event):
         await l313l.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 @l313l.on(admin_cmd(pattern="(تجميع المليون|تجميع مليون)"))
 async def _(event):
-    if JoKeRUB[0] == "yes":
-        await event.edit("**᯽︙سيتم تجميع النقاط من بوت المليون , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    if aliup[0] == "yes":
+        await event.edit("**سيتم تجميع النقاط من بوت المليون , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await l313l.get_entity(bot_username4)
         await l313l.send_message('@qweqwe1919bot', '/start')
         await asyncio.sleep(2)
@@ -330,7 +324,7 @@ async def _(event):
 
         chs = 1
         for i in range(100):
-            if JoKeRUB[0] == 'no':
+            if aliup[0] == 'no':
                 break
             await asyncio.sleep(2)
 
@@ -356,7 +350,7 @@ async def _(event):
         await l313l.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 @l313l.on(admin_cmd(pattern="(تجميع العرب|تجميع عرب)"))
 async def _(event):
-    await event.edit("**᯽︙سيتم تجميع النقاط من بوت العرب , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    await event.edit("**سيتم تجميع النقاط من بوت العرب , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
     channel_entity = await l313l.get_entity(bot_username5)
     await l313l.send_message(bot_username5, '/start')
     await asyncio.sleep(4)
@@ -396,7 +390,7 @@ async def _(event):
     await l313l.send_message(event.chat_id, "تم الانتهاء من التجميع")
 @l313l.on(admin_cmd(pattern="تجميع دعمكم"))
 async def _(event):
-    await event.edit("**᯽︙سيتم تجميع النقاط من بوت دعمكم , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+    await event.edit("**سيتم تجميع النقاط من بوت دعمكم , قبل كل شي تأكد من انك قمت بالانضمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
     channel_entity = await l313l.get_entity(bot_username6)
     await l313l.send_message('@DamKombot', '/start')
     await asyncio.sleep(4)
@@ -413,7 +407,7 @@ async def _(event):
         if msgs.message.find('لا يوجد قنوات حالياً 🤍') != -1:
             await l313l.send_message(event.chat_id, "تم الانتهاء من التجميع")
             break
-        msg_text = msgs.message  # الكود تمت كتابتهُ من قبل سورس الجوكر 
+        msg_text = msgs.message  
         if "اشترك فالقناة @" in msg_text:
             aljoker_channel = msg_text.split('@')[1].split()[0]
             try:
