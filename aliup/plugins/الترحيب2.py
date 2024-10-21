@@ -1,12 +1,9 @@
-#========================#
-#       JoKeRUB  - lMl10l  #  
-# =======================#
 
 from asyncio import sleep
 from telethon.utils import get_display_name
 from telethon import events
 
-from JoKeRUB import l313l
+from aliup import l313l
 from ..Config import Config
 
 
@@ -97,9 +94,9 @@ async def save_welcome(event):
         if BOTLOG_CHATID:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"**᯽︙ التـرحيب الـخاص **\
-                \n**᯽︙ ايدي الدردشـة  :** {event.chat_id}\
-                \n**᯽︙ تم حفـظ الرسالـة الاتيـة كـترحيـب بنجـاح \n** {event.chat.title}, لا تقـم بحـذف هـذه الرسالـة !",
+                f"** التـرحيب الـخاص **\
+                \n** ايدي الدردشـة  :** {event.chat_id}\
+                \n** تم حفـظ الرسالـة الاتيـة كـترحيـب بنجـاح \n** {event.chat.title}, لا تقـم بحـذف هـذه الرسالـة !",
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID, messages=msg, from_peer=event.chat_id, silent=True
@@ -108,28 +105,28 @@ async def save_welcome(event):
         else:
             await edit_or_reply(
                 event,
-                "**᯽︙ حفـظ الوسائـط كجـزء مـن الترحيـب يتطلـب تعييـن فـار BOTLOG_CHATID !**",
+                "** حفـظ الوسائـط كجـزء مـن الترحيـب يتطلـب تعييـن فـار BOTLOG_CHATID !**",
             )
             return
     elif event.reply_to_msg_id and not string:
         rep_msg = await event.get_reply_message()
         string = rep_msg.text
-    success = "**᯽︙ تـم حـفظ الـترحيب الـخاص فـي هـذه الـدردشـة بنـجاح**"
+    success = "** تـم حـفظ الـترحيب الـخاص فـي هـذه الـدردشـة بنـجاح**"
     if addwelcome_setting(event.chat_id, 0, string, msg_id) is True:
         return await edit_or_reply(event, success.format("saved"))
     rmwelcome_setting(event.chat_id)
     if addwelcome_setting(event.chat_id, 0, string, msg_id) is True:
         return await edit_or_reply(event, success.format("updated"))
-    await edit_or_reply("**᯽︙ حـدث خطـأ أثنـاء ضبـط رسالـة الترحيـب في هـذه الـدردشـة ️**")
+    await edit_or_reply("** حـدث خطـأ أثنـاء ضبـط رسالـة الترحيـب في هـذه الـدردشـة ️**")
 
 
 @l313l.on(admin_cmd(pattern=f"{delwelpriv}(?:\s|$)([\s\S]*)"))
 async def del_welcome(event):
     "To turn off private welcome message"
     if rmwelcome_setting(event.chat_id) is True:
-        await edit_or_reply(event, "**᯽︙ تم حـذف الترحيـب الـخاص لهـذه الدردشـة بنجـاح **")
+        await edit_or_reply(event, "** تم حـذف الترحيـب الـخاص لهـذه الدردشـة بنجـاح **")
     else:
-        await edit_or_reply(event, "**᯽︙ لـيس لـدي اي رسـالة تـرحيب خـاص هـنا**")
+        await edit_or_reply(event, "** لـيس لـدي اي رسـالة تـرحيب خـاص هـنا**")
 
 
 @l313l.ar_cmd(
@@ -144,18 +141,18 @@ async def show_welcome(event):
     "To show current private welcome message in group"
     cws = getcurrent_welcome_settings(event.chat_id)
     if not cws:
-        await edit_or_reply(event, "**᯽︙ لـم يتـم حفـظ اي ترحيـب خـاص هـنا **")
+        await edit_or_reply(event, "** لـم يتـم حفـظ اي ترحيـب خـاص هـنا **")
         return
     if cws.f_mesg_id:
         msg_o = await event.client.get_messages(
             entity=BOTLOG_CHATID, ids=int(cws.f_mesg_id)
         )
         await edit_or_reply(
-            event, "**᯽︙ سأقـوم بالترحيـب بالأعضـاء الجـدد بهـذه الرسالـة :**"
+            event, "** سأقـوم بالترحيـب بالأعضـاء الجـدد بهـذه الرسالـة :**"
         )
         await event.reply(msg_o.message, file=msg_o.media)
     elif cws.reply:
         await edit_or_reply(
-            event, "**᯽︙ سأقـوم بالترحيـب بالأعضـاء الجـدد بهـذه الرسالـة :**"
+            event, "** سأقـوم بالترحيـب بالأعضـاء الجـدد بهـذه الرسالـة :**"
         )
         await event.reply(cws.reply)
