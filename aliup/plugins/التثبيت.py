@@ -20,7 +20,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -72,11 +72,11 @@ plugin_category = "admin"
     pattern="تثبيت( بالاشعار|$)",
     command=("تثبيت", plugin_category),
     info={
-        "᯽︙ الأسـتخدام": "For pining messages in chat",
-        "᯽︙ الشـرح": "reply to a message to pin it in that in chat\
-        \n᯽︙ تـحتاج الصلاحـيات لـهذا الأمـر if you want to use in group.",
+        " الأسـتخدام": "For pining messages in chat",
+        " الشـرح": "reply to a message to pin it in that in chat\
+        \n تـحتاج الصلاحـيات لـهذا الأمـر if you want to use in group.",
         "options": {"loud": "To notify everyone without this.it will pin silently"},
-        "᯽︙ الأمـر": [
+        " الأمـر": [
             "{tr}pin <reply>",
             "{tr}pin loud <reply>",
         ],
@@ -86,7 +86,7 @@ async def pin(event):
     "To pin a message in chat"
     to_pin = event.reply_to_msg_id
     if not to_pin:
-        return await edit_delete(event, "᯽︙ يـجب الـرد على الـرسالة التي تـريد تـثبيـتها ", 5)
+        return await edit_delete(event, " يـجب الـرد على الـرسالة التي تـريد تـثبيـتها ", 5)
     options = event.pattern_match.group(1)
     is_silent = bool(options)
     try:
@@ -95,16 +95,15 @@ async def pin(event):
         return await edit_delete(event, NO_PERM, 5)
     except Exception as e:
         return await edit_delete(event, f"`{str(e)}`", 5)
-    await edit_delete(event, "᯽︙ تـم تـثبيـت الـرسالة بـنجـاح ✅", 3)
+    await edit_delete(event, " تـم تـثبيـت الـرسالة بـنجـاح ✅", 3)
     if BOTLOG and not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
-            f"᯽︙ الـتثبيت\
-                \n **᯽︙ تـم بـنجـاح الـتثبيت فـي الدردشـة**\
+            f" الـتثبيت\
+                \n ** تـم بـنجـاح الـتثبيت فـي الدردشـة**\
                 \nالـدردشـة: {event.chat.title}(`{event.chat_id}`)\
                 \nالـتثبيت: {is_silent}",
         )
-#admin plugin for  l313l
 @l313l.ar_cmd(
     pattern="الغاء التثبيت( للكل|$)",
     command=("الغاء التثبيت", plugin_category),
@@ -120,13 +119,13 @@ async def pin(event):
     },
 )
 async def pin(event):
-    "᯽︙ لإلغاء تثبيت رسائل من المجموعة  ⚠️"
+    " لإلغاء تثبيت رسائل من المجموعة  ⚠️"
     to_unpin = event.reply_to_msg_id
     options = (event.pattern_match.group(1)).strip()
     if not to_unpin and options != "all":
         return await edit_delete(
             event,
-            "᯽︙ يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍",
+            " يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍",
             5,
         )
     try:
@@ -136,7 +135,7 @@ async def pin(event):
             await event.client.unpin_message(event.chat_id)
         else:
             return await edit_delete(
-                event, "᯽︙ يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍", 5
+                event, " يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍", 5
             )
     except BadRequestError:
         return await edit_delete(event, NO_PERM, 5)
@@ -146,8 +145,8 @@ async def pin(event):
     if BOTLOG and not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
-            f"**᯽︙ الـغاء التثبيت  ❗️ \
-                \n** ᯽︙ تم بنجاح الغاء التثبيـت في الدردشة  ✅ \
+            f"** الـغاء التثبيت  ❗️ \
+                \n**  تم بنجاح الغاء التثبيـت في الدردشة  ✅ \
                 \n⌔︙الدردشـه  🔖 : {event.chat.title}(`{event.chat_id}`)",
         )
 #admin plugin for  l313l
@@ -155,12 +154,12 @@ async def pin(event):
     pattern="الاحداث( -ر)?(?: |$)(\d*)?",
     command=("الأحداث", plugin_category),
     info={
-        "᯽︙ الأسـتخدام": "To get recent deleted messages in group",
-        "᯽︙ الشـرح": "To check recent deleted messages in group, by default will show 5. you can get 1 to 15 messages.",
+        " الأسـتخدام": "To get recent deleted messages in group",
+        " الشـرح": "To check recent deleted messages in group, by default will show 5. you can get 1 to 15 messages.",
         "flags": {
             "u": "use this flag to upload media to chat else will just show as media."
         },
-        "᯽︙ الأمـر": [
+        " الأمـر": [
             "{tr}undlt <count>",
             "{tr}undlt -u <count>",
         ],
@@ -174,7 +173,7 @@ async def pin(event):
 )
 async def _iundlt(event):  # sourcery no-metrics
     "To check recent deleted messages in group"
-    catevent = await edit_or_reply(event, "᯽︙ يـتم الـبحث عن اخـر الاحداث")
+    catevent = await edit_or_reply(event, " يـتم الـبحث عن اخـر الاحداث")
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))
@@ -187,7 +186,7 @@ async def _iundlt(event):  # sourcery no-metrics
     adminlog = await event.client.get_admin_log(
         event.chat_id, limit=lim, edit=False, delete=True
     )
-    deleted_msg = f"᯽︙ اخـر {lim} رسـائل مـحذوفة فـي الـدردشة :"
+    deleted_msg = f" اخـر {lim} رسـائل مـحذوفة فـي الـدردشة :"
     if not flag:
         for msg in adminlog:
             ruser = (
@@ -195,9 +194,9 @@ async def _iundlt(event):  # sourcery no-metrics
             ).users[0]
             _media_type = media_type(msg.old)
             if _media_type is None:
-                deleted_msg += f"\n {msg.old.message} \n ᯽︙ تم ارسالها بـواسطة {_format.mentionuser(ruser.first_name ,ruser.id)}"
+                deleted_msg += f"\n {msg.old.message} \n  تم ارسالها بـواسطة {_format.mentionuser(ruser.first_name ,ruser.id)}"
             else:
-                deleted_msg += f"\n {_media_type} \n ᯽︙ ارسلت بـواسطـة {_format.mentionuser(ruser.first_name ,ruser.id)}"
+                deleted_msg += f"\n {_media_type} \n  ارسلت بـواسطـة {_format.mentionuser(ruser.first_name ,ruser.id)}"
         await edit_or_reply(catevent, deleted_msg)
     else:
         main_msg = await edit_or_reply(catevent, deleted_msg)
@@ -208,12 +207,10 @@ async def _iundlt(event):  # sourcery no-metrics
             _media_type = media_type(msg.old)
             if _media_type is None:
                 await main_msg.reply(
-                    f"{msg.old.message}\n᯽︙ ارسلت بواسطه {_format.mentionuser(ruser.first_name ,ruser.id)}"
+                    f"{msg.old.message}\n ارسلت بواسطه {_format.mentionuser(ruser.first_name ,ruser.id)}"
                 )
             else:
                 await main_msg.reply(
-                    f"{msg.old.message}\n᯽︙ ارسلت بواسطه {_format.mentionuser(ruser.first_name ,ruser.id)}",
+                    f"{msg.old.message}\n ارسلت بواسطه {_format.mentionuser(ruser.first_name ,ruser.id)}",
                     file=msg.old.media,
                 )
-#admin plugin for  l313l
-# by  @lMl10l
