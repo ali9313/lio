@@ -3,8 +3,8 @@ from datetime import datetime
 import textwrap
 from telethon.utils import get_display_name
 
-from JoKeRUB import l313l
-from JoKeRUB.core.logger import logging
+from aliup import l313l
+from aliup.core.logger import logging
 
 from ..Config import Config
 from ..core import CMD_INFO, PLG_INFO
