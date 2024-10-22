@@ -34,16 +34,16 @@ async def generate_image(prompt):
 
     try:
         response = requests.post('https://api.aiacdemy.com:18000/comfyapi/v4/prompt', params=params, headers=headers, json=data)
-        response_json = response.json()  # حاول الحصول على JSON مباشرة
-        print(response_json)  # طباعة الاستجابة لمساعدتك في التحقق
-        
+        response_json = response.json()  # الحصول على JSON من الاستجابة
+        print(response_json)  # طباعة الاستجابة
+
         if 'images' in response_json and response_json['images']:
-            img_url = response_json['images'][0]
+            img_url = response_json['images'][0]  # الحصول على رابط الصورة
             return img_url
         else:
             return None
     except Exception as e:
-        print(f"حدث خطأ: {e}")  # طباعة الأخطاء لمساعدتك في التحقق
+        print(f"حدث خطأ: {e}")  # طباعة الأخطاء
         return None
 
 @l313l.ar_cmd(pattern="صور(?:\s|$)([\s\S]*)")
@@ -55,14 +55,17 @@ async def handler(event):
     if image_url:
         # تنزيل الصورة
         image_response = requests.get(image_url)
-        
+
         # تحقق من أن الطلب كان ناجحًا
         if image_response.status_code == 200:
             # احفظ الصورة في ذاكرة مؤقتة
             image_bytes = image_response.content
             
-            # إرسال الصورة إلى المستخدم
-            await event.reply(file=image_bytes)
+            try:
+                # إرسال الصورة إلى المستخدم
+                await event.reply(file=image_bytes)
+            except Exception as e:
+                await event.reply(f"حدث خطأ أثناء إرسال الصورة: {e}")
         else:
             await event.reply("حدث خطأ أثناء تنزيل الصورة.")
     else:
