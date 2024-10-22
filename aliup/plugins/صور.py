@@ -1,71 +1,52 @@
-import contextlib
-import os
-import shutil
+from telethon import TelegramClient, events
+import requests
+import uuid
+from aliup import *
+async def generate_image(prompt):
+    G1 = str(uuid.uuid4())
+    G2 = str(uuid.uuid4())
 
-from telethon.errors.rpcerrorlist import MediaEmptyError
-
-from aliup import l313l
-
-from ..core.managers import edit_or_reply
-from ..helpers.google_image_download import googleimagesdownload
-from ..helpers.utils import reply_id
-
-plugin_category = "misc"
-
-
-@l313l.ar_cmd(
-    pattern="صور(?: |$)(\d*)? ?([\s\S]*)",
-    command=("صور", plugin_category),
-    info={
-        "header": "Google image search.",
-        "description": "To search images in google. By default will send 3 images.you can get more images(upto 10 only by changing limit value as shown in usage and examples.",
-        "usage": ["{tr}img <1-10> <query>", "{tr}img <query>"],
-        "examples": [
-            "{tr}img 10 catuserbot",
-            "{tr}img catuserbot",
-            "{tr}img 7 catuserbot",
-        ],
-    },
-)
-async def img_sampler(event):
-    "Google image search."
-    reply_to_id = await reply_id(event)
-    if event.is_reply and not event.pattern_match.group(2):
-        query = await event.get_reply_message()
-        query = str(query.message)
-    else:
-        query = str(event.pattern_match.group(2))
-    if not query:
-        return await edit_or_reply(
-            event, "**  قم بكتابة النص مع الامر او بالرد على النص **"
-        )
-    cat = await edit_or_reply(event, "**   جارِ البحث عن الصور انتظر قليلاً ✓ **")
-    if event.pattern_match.group(1) != "":
-        lim = int(event.pattern_match.group(1))
-        lim = min(lim, 10)
-        if lim <= 0:
-            lim = 1
-    else:
-        lim = 3
-    response = googleimagesdownload()
-    # creating list of arguments
-    arguments = {
-        "keywords": query.replace(",", " "),
-        "limit": lim,
-        "format": "jpg",
-        "no_directory": "no_directory",
+    headers = {
+        'Host': 'api.aiacdemy.com:18000',
+        'Content-Type': 'application/json; charset=UTF-8',
+        'User-Agent': 'okhttp/4.12.0',
+        'Connection': 'keep-alive'
     }
-    # passing the arguments to the function
+
+    params = {
+        'app_version_code': '363',
+        'app_version_name': '3.8.0',
+        'device_id': G1,
+        'ad_id': G2,
+        'platform': 'android'
+    }
+
+    data = {
+        'diamond_remain': 12,
+        'height': 1024,
+        'model_id': 'general',
+        'prompt': prompt,
+        'prompt_translated': prompt,
+        'width': 1024,
+        'work_type': 'text2img'
+    }
+
     try:
-        paths = response.download(arguments)
+        response = requests.post('https://api.aiacdemy.com:18000/comfyapi/v4/prompt', params=params, headers=headers, json=data).json()
+        
+        if 'images' in response and response['images']:
+            img_url = response['images'][0]
+            return img_url
+        else:
+            return "Error: No image returned."
     except Exception as e:
-        return await cat.edit(f"خطأ: \n`{e}`")
-    lst = paths[0][query.replace(",", " ")]
-    try:
-        await event.client.send_file(event.chat_id, lst, reply_to=reply_to_id)
-    except MediaEmptyError:
-        for i in lst:
-            with contextlib.suppress(MediaEmptyError):
-                await event.client.send_file(event.chat_id, i, reply_to=reply_to_id)
-    shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
-    await cat.delete()
+        return f"Error: {e}"
+
+@l313l.ar_cmd(pattern="صور(?:\s|$)([\s\S]*)")
+async def handler(event):
+    # استخرج الوصف من الرسالة بعد أمر .صوره
+    prompt = event.pattern_match.group(1)
+    image_url = await generate_image(prompt)
+
+    # إرسال رابط الصورة أو رسالة الخطأ للمستخدم
+    await event.reply(f"رابط الصورة: {image_url}")
