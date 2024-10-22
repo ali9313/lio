@@ -87,7 +87,7 @@ async def fetch_info(replied_user, event):
     elif user_id == (await event.client.get_me()).id:
         rotbat = "مـالك الحساب 𓀫" 
     else:
-        rotbat = "العضـو"
+        rotbat = "العضـو 𓅫"
     caption = "ٴ┓───────────────┏\n"
     caption += f"<b> {JEP_EM}الاسـم  ⇐ </b> {full_name}\n"
     caption += f"<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
