@@ -163,7 +163,7 @@ async def _(event):
     await edit_or_reply(catevent, caption)
 
 
-@l313l.ar_cmd(pattern="ايدي(?: |$)(.*)|ا(?:.*)",
+@l313l.ar_cmd(pattern="ايدي(?: |$)(.*)|ا(?: |$)(.*)"),
     command=("ايدي", plugin_category),
     info={
         "header": "لـ عـرض معلومـات الشخـص",
