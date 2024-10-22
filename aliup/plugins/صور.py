@@ -33,14 +33,17 @@ async def generate_image(prompt):
     }
 
     try:
-        response = requests.post('https://api.aiacdemy.com:18000/comfyapi/v4/prompt', params=params, headers=headers, json=data).json()
+        response = requests.post('https://api.aiacdemy.com:18000/comfyapi/v4/prompt', params=params, headers=headers, json=data)
+        response_json = response.json()  # حاول الحصول على JSON مباشرة
+        print(response_json)  # طباعة الاستجابة لمساعدتك في التحقق
         
-        if 'images' in response and response['images']:
-            img_url = response['images'][0]
+        if 'images' in response_json and response_json['images']:
+            img_url = response_json['images'][0]
             return img_url
         else:
             return None
     except Exception as e:
+        print(f"حدث خطأ: {e}")  # طباعة الأخطاء لمساعدتك في التحقق
         return None
 
 @l313l.ar_cmd(pattern="صور(?:\s|$)([\s\S]*)")
