@@ -48,7 +48,6 @@ async def get_user_from_event(event):
     return user_object
 
 ali = (232499688, 1719023510)
-ali_div = (" ")
 async def fetch_info(replied_user, event):
     """Get details from the User object."""
     FullUser = (await event.client(GetFullUserRequest(replied_user.id))).full_user
@@ -79,8 +78,6 @@ async def fetch_info(replied_user, event):
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
         if user_id in ali: 
         rotbat = "مطـور السـورس 𓄂" 
-    elif user_id in ali_div:
-        rotbat = "مـطـور 𐏕" 
     elif user_id == (await event.client.get_me()).id:
         rotbat = "مـالك الحساب 𓀫" 
     else:
