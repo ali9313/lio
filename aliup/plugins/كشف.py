@@ -15,7 +15,7 @@ from ..core.managers import edit_or_reply
 from ..helpers import get_user_from_event, reply_id
 from . import spamwatch
 
-JEP_EM = Config.ID_EM or " •❃ "
+JEP_EM = Config.ID_EM or "ٴ│ ●"
 ID_EDIT = gvarstatus("ID_ET") or "ايدي"
 
 plugin_category = "utils"
@@ -88,16 +88,16 @@ async def fetch_info(replied_user, event):
         rotbat = "مـالك الحساب 𓀫" 
     else:
         rotbat = "العضـو"
-    caption = "✛━━━━━━━━━━━━━✛\n"
-    caption += f"<b> {JEP_EM}╎الاسـم    ⇠ </b> {full_name}\n"
-    caption += f"<b> {JEP_EM}╎المعـرف  ⇠ </b> {username}\n"
-    caption += f"<b> {JEP_EM}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
-    caption += f"<b> {JEP_EM}╎الرتبـــه  ⇠ {rotbat} </b>\n"
-    caption += f"<b> {JEP_EM}╎الصـور   ⇠ </b> {replied_user_profile_photos_count}\n"
-    caption += f"<b> {JEP_EM}╎الحساب ⇠ </b> "
+    caption = "ٴ┓───────────────┏\n"
+    caption += f"<b> {JEP_EM}الاسـم  ⇐ </b> {full_name}\n"
+    caption += f"<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
+    caption += f"<b> {JEP_EM}الايـدي  ⇐ </b> <code>{user_id}</code>\n"
+    caption += f"<b> {JEP_EM}الـرتبـه  ⇐ {rotbat} </b>\n"
+    caption += f"<b> {JEP_EM}الصـور  ⇐ </b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> {JEP_EM}الحساب ⇠ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"\n<b> {JEP_EM}╎البايـو    ⇠ </b> {user_bio} \n"
-    caption += f"✛━━━━━━━━━━━━━✛"
+    caption += f"\n<b> {JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
+    caption += f"ٴ┛───────────────┗"
     return photo, caption
 
 @l313l.ar_cmd(
