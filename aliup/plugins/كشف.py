@@ -85,7 +85,7 @@ async def fetch_info(replied_user, event):
         rotbat = "مـالك الحساب 𓀫" 
     else:
         rotbat = "العضـو 𓅫"
-    caption = f"<b>   ٴ┓───────────────┏\n"
+    caption = f"<b>     ٴ┓───────────────┏\n"
     caption += f"<b> {JEP_EM}الاسـم  ⇐   </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
     caption += f"\n<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
@@ -93,7 +93,7 @@ async def fetch_info(replied_user, event):
     caption += f"<b> {JEP_EM}الـرتبـه  ⇐ {rotbat} </b>\n"
     caption += f"<b> {JEP_EM}الصـور  ⇐ </b> {replied_user_profile_photos_count}\n"
     caption += f"<b> {JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
-    caption += f"<b> ٴ┛───────────────┗</b>"
+    caption += f"<b>    ٴ┛───────────────┗</b>"
     return photo, caption
 
 @l313l.ar_cmd(
