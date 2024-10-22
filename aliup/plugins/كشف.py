@@ -15,7 +15,7 @@ from ..core.managers import edit_or_reply
 from ..helpers import get_user_from_event, reply_id
 from . import spamwatch
 
-JEP_EM = Config.ID_EM or " ٴ│ ● "
+JEP_EM = Config.ID_EM or " •❃ "
 ID_EDIT = gvarstatus("ID_ET") or "ايدي"
 
 plugin_category = "utils"
@@ -47,12 +47,15 @@ async def get_user_from_event(event):
             return None
     return user_object
 
-ali = (232499688, 1719023510)
+
+# ... كود الاستيراد كما هو
+
 async def fetch_info(replied_user, event):
     """Get details from the User object."""
     FullUser = (await event.client(GetFullUserRequest(replied_user.id))).full_user
     replied_user_profile_photos = await event.client(
-        GetUserPhotosRequest(user_id=replied_user.id, offset=42, max_id=0, limit=80)    )
+        GetUserPhotosRequest(user_id=replied_user.id, offset=42, max_id=0, limit=80)
+    )
     replied_user_profile_photos_count = "لايـوجـد بروفـايـل"
     dc_id = "Can't get dc id"
     try:
@@ -60,6 +63,8 @@ async def fetch_info(replied_user, event):
         dc_id = replied_user.photo.dc_id
     except AttributeError:
         pass
+
+    # باقي الكود كما هو...
     user_id = replied_user.id
     first_name = replied_user.first_name
     full_name = FullUser.private_forward_name
@@ -76,21 +81,23 @@ async def fetch_info(replied_user, event):
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
-        if user_id in ali: 
+    ali = (232499688, 1719023510)
+    if user_id in ali: 
         rotbat = "مطـور السـورس 𓄂" 
     elif user_id == (await event.client.get_me()).id:
         rotbat = "مـالك الحساب 𓀫" 
     else:
-        rotbat = "العضـو 𓅫"
-    caption = f"<b>     ٴ┓───────────────┏\n"
-    caption += f"<b> {JEP_EM}الاسـم  ⇐   </b> "
+        rotbat = "العضـو"
+    caption = "✛━━━━━━━━━━━━━✛\n"
+    caption += f"<b> {JEP_EM}╎الاسـم    ⇠ </b> {full_name}\n"
+    caption += f"<b> {JEP_EM}╎المعـرف  ⇠ </b> {username}\n"
+    caption += f"<b> {JEP_EM}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
+    caption += f"<b> {JEP_EM}╎الرتبـــه  ⇠ {rotbat} </b>\n"
+    caption += f"<b> {JEP_EM}╎الصـور   ⇠ </b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> {JEP_EM}╎الحساب ⇠ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"\n<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
-    caption += f"<b> {JEP_EM}الايـدي  ⇐ </b> <code>{user_id}</code>\n"
-    caption += f"<b> {JEP_EM}الـرتبـه  ⇐ {rotbat} </b>\n"
-    caption += f"<b> {JEP_EM}الصـور  ⇐ </b> {replied_user_profile_photos_count}\n"
-    caption += f"<b> {JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
-    caption += f"<b>    ٴ┛───────────────┗</b>"
+    caption += f"\n<b> {JEP_EM}╎البايـو    ⇠ </b> {user_bio} \n"
+    caption += f"✛━━━━━━━━━━━━━✛"
     return photo, caption
 
 @l313l.ar_cmd(
@@ -107,7 +114,7 @@ async def _(event):
     replied_user = await get_user_from_event(event)
     if not replied_user:
         return
-    catevent = await edit_or_reply(event, " جار إحضار معلومات المستخدم اننظر قليلا ⚒️")
+    catevent = await edit_or_reply(event, "᯽︙ جار إحضار معلومات المستخدم اننظر قليلا ⚒️")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     user_id = replied_user.users[0].id
     first_name = html.escape(replied_user.users[0].first_name)
@@ -187,6 +194,8 @@ async def who(event):
         await cat.delete()
     except TypeError:
         await cat.edit(caption, parse_mode="html")
+#كـتابة  @lMl10l
+#تعديل وترتيب  @lMl10l
 @l313l.ar_cmd(
     pattern="رابط الحساب(?:\s|$)([\s\S]*)",
     command=("رابط الحساب", plugin_category),
@@ -226,17 +235,17 @@ async def _(event):
         try:
             if p.first_name:
                 return await edit_or_reply(
-                    event, f" ايدي المستخدم : `{input_str}` هو `{p.id}`"
+                    event, f"᯽︙ ايدي المستخدم : `{input_str}` هو `{p.id}`"
                 )
         except Exception:
             try:
                 if p.title:
                     return await edit_or_reply(
-                        event, f" ايدي الدردشة/القناة `{p.title}` هو `{p.id}`"
+                        event, f"᯽︙ ايدي الدردشة/القناة `{p.title}` هو `{p.id}`"
                     )
             except Exception as e:
                 LOGS.info(str(e))
-        await edit_or_reply(event, " يـجب كـتابة مـعرف الشـخص او الـرد عـليه")
+        await edit_or_reply(event, "᯽︙ يـجب كـتابة مـعرف الشـخص او الـرد عـليه")
     elif event.reply_to_msg_id:
         await event.get_input_chat()
         r_msg = await event.get_reply_message()
@@ -244,15 +253,15 @@ async def _(event):
             bot_api_file_id = pack_bot_file_id(r_msg.media)
             await edit_or_reply(
                 event,
-                f" ايدي الدردشه: `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` \n᯽︙ ايدي الميديا: `{bot_api_file_id}`",
+                f"᯽︙ ايدي الدردشه: `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` \n᯽︙ ايدي الميديا: `{bot_api_file_id}`",
             )
         else:
             await edit_or_reply(
                 event,
-               f" ايدي الدردشه : `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` ",
+               f"᯽︙ ايدي الدردشه : `{str(event.chat_id)}` \n᯽︙ ايدي المستخدم: `{str(r_msg.sender_id)}` ",
             )
     else:
-        await edit_or_reply(event, f" الـدردشـة الـحالية : `{str(event.chat_id)}`")
+        await edit_or_reply(event, f"᯽︙ الـدردشـة الـحالية : `{str(event.chat_id)}`")
 @l313l.ar_cmd(
     pattern=r"كشف_ايدي(?: (\d+))?$",
     command=("كشف_ايدي", "utils"),
@@ -271,7 +280,7 @@ async def get_user_info(event):
             await edit_or_reply(event, message)
         
         except Exception as e:
-            await edit_or_reply(event, "** غير موجود ** ")
+            await edit_or_reply(event, "**᯽︙ غير موجود ** ")
     
     else:
-        await edit_or_reply(event, "** ضع ايدي الشخص عزيزي **")
+        await edit_or_reply(event, "**᯽︙ ضع ايدي الشخص عزيزي **")
