@@ -2,6 +2,7 @@ from telethon import TelegramClient, events
 import requests
 import uuid
 from aliup import *
+
 async def generate_image(prompt):
     G1 = str(uuid.uuid4())
     G2 = str(uuid.uuid4())
@@ -38,9 +39,9 @@ async def generate_image(prompt):
             img_url = response['images'][0]
             return img_url
         else:
-            return "Error: No image returned."
+            return None
     except Exception as e:
-        return f"Error: {e}"
+        return None
 
 @l313l.ar_cmd(pattern="صور(?:\s|$)([\s\S]*)")
 async def handler(event):
@@ -48,5 +49,18 @@ async def handler(event):
     prompt = event.pattern_match.group(1)
     image_url = await generate_image(prompt)
 
-    # إرسال رابط الصورة أو رسالة الخطأ للمستخدم
-    await event.reply(f"رابط الصورة: {image_url}")
+    if image_url:
+        # تنزيل الصورة
+        image_response = requests.get(image_url)
+        
+        # تحقق من أن الطلب كان ناجحًا
+        if image_response.status_code == 200:
+            # احفظ الصورة في ذاكرة مؤقتة
+            image_bytes = image_response.content
+            
+            # إرسال الصورة إلى المستخدم
+            await event.reply(file=image_bytes)
+        else:
+            await event.reply("حدث خطأ أثناء تنزيل الصورة.")
+    else:
+        await event.reply("لم يتم إنشاء الصورة.")
