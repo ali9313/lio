@@ -47,7 +47,8 @@ async def get_user_from_event(event):
             return None
     return user_object
 
-alidiv = [232499688, 1719023510]
+ali = (232499688, 1719023510)
+ali_div = (" ")
 async def fetch_info(replied_user, event):
     """Get details from the User object."""
     FullUser = (await event.client(GetFullUserRequest(replied_user.id))).full_user
@@ -76,9 +77,15 @@ async def fetch_info(replied_user, event):
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
-    rotbat = "⌁ مطور السورس 𓄂𓆃 ⌁" if user_id in alidiv else ("⌁ العضـو 𓅫 ⌁")
-    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != alidiv  else rotbat
-    caption = f"<b> ٴ┓───────────────┏\n"
+        if user_id in ali: 
+        rotbat = "مطـور السـورس 𓄂" 
+    elif user_id in ali_div:
+        rotbat = "مـطـور 𐏕" 
+    elif user_id == (await event.client.get_me()).id:
+        rotbat = "مـالك الحساب 𓀫" 
+    else:
+        rotbat = "العضـو 𓅫"
+    caption = f"<b>   ٴ┓───────────────┏\n"
     caption += f"<b> {JEP_EM}الاسـم  ⇐   </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
     caption += f"\n<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
@@ -156,7 +163,7 @@ async def _(event):
     await edit_or_reply(catevent, caption)
 
 
-@l313l.ar_cmd(pattern="ايدي(?: |$)(.*)|ا(?: |$)(.*)",
+@l313l.ar_cmd(pattern="ايدي(?: |$)(.*)|ا(?:.*)",
     command=("ايدي", plugin_category),
     info={
         "header": "لـ عـرض معلومـات الشخـص",
