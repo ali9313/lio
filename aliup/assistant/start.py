@@ -1,20 +1,18 @@
-#    جميع الحقوق لمطوري سورس جـيبثون حصريا لهم فقط
-#    اذا تخمط الملف اذك الحقوق وكاتبيه ومطوريه لا تحذف الحقوق وتصير فاشل 👍
-#    كتابة الشسد 
+
 import asyncio
 import io
 import re
 
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
-from JoKeRUB import bot
-from JoKeRUB.sql_helper.blacklist_assistant import (
+from aliup import bot
+from aliup.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
     is_he_added,
     removenibba,
 )
-from JoKeRUB.sql_helper.botusers_sql import add_me_in_db, his_userid
-from JoKeRUB.sql_helper.idadder_sql import (
+from aliuo.sql_helper.botusers_sql import add_me_in_db, his_userid
+from aliup.sql_helper.idadder_sql import (
     add_usersid_in_db,
     already_added,
     get_all_users,
@@ -37,7 +35,7 @@ async def start(event):
             buttons=[
                                      [Button.inline("عرض المستخدمين 📬", data="users"), Button.inline(
                                          "اوامر البـوت ⚒️", data="gibcmd")],
-                                     [Button.url("المطـور 🔗", "https://t.me/lMl10l"), Button.inline(
+                                     [Button.url("المطـور 🔗", "https://t.me/n_u_7"), Button.inline(
                                          "اوامر الزغـرفة", data="rozzag")],
 
                                  ])
@@ -51,8 +49,8 @@ async def start(event):
             message=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("تنـصيب جيـبثون  🐍", data="deploy")],
-                [Button.url("تحتاج مسـاعدة ❓", "https://t.me/lMl10l")],
+                [custom.Button.inline("تنـصيب التمساح", data="deploy")],
+                [Button.url("تحتاج مسـاعدة ❓", "https://t.me/n_u_7")],
             ],
         )
 
@@ -66,8 +64,8 @@ async def help(event):
             event.chat_id,
             message="**لتـنصيب البـوت الخاص بك اتبـع الخطـوات في الاسفـل وحاول واذا لم تستطيع تفضل الى مجموعة المساعدة ليساعدوك 🧸♥**.",
             buttons=[
-                [Button.url("شرح التنصيب 📺", "https://youtu.be/ATAgbLGzr7w")],
-                [Button.url("كروب المساعدة ❓", "https://t.me/jepthonSupport")],
+                [Button.url("شرح التنصيب 📺", "https://t.me/u_gg_u")],
+                [Button.url("كروب المساعدة ❓", "https://t.me/u_gg_u")],
             ],
         )
 
@@ -81,7 +79,7 @@ async def users(event):
         for starked in total_users:
             users_list += ("==> {} \n").format(int(starked.chat_id))
         with io.BytesIO(str.encode(users_list)) as tedt_file:
-            tedt_file.name = "JoKeRUB.txt"
+            tedt_file.name = "aliup.txt"
             await tgbot.send_file(
                 event.chat_id,
                 tedt_file,
@@ -107,16 +105,13 @@ async def starkislub(event):
 
 @tgbot.on(events.NewMessage(pattern="^/alive", func=lambda e: e.sender_id == bot.uid))
 async def starkislub(event):
-    razan = "**𝘑𝘌𝘗𝘛𝘏𝘖𝘕 𝘜𝘚𝘌𝘙𝘉𝘖𝘛**\n•━═━═━═━═━━═━═━═━═━•‌‌\n**- حالة البوت **  يعمـل بنجـاح\n**- اصدار التليثون  **: 1.23.0\n**- اصدار البايثون **: 3.9.6\n**- يوزرك ** {mention}\n**- CH : @jepthon\n•━═━═━═━═━━═━═━═━═━•‌‌\n"
+    razan = "**ᴛᴍsᴀʜ ᴜsᴇʀʙᴏᴛ**\n•━═━═━═━═━━═━═━═━═━•‌‌\n**- حالة البوت **  يعمـل بنجـاح\n**- اصدار التليثون  **: 1.23.0\n**- اصدار البايثون **: 3.9.6\n**- يوزرك ** {mention}\n**- CH : @u_gg_u\n•━═━═━═━═━━═━═━═━═━•‌‌\n"
     await event.reply(razan)
     
     
 
 
-"""  حقوقي شرفك تغير شي تلعب بشرفك """
 
-# بـسـم الله الـرحمن الـرحيم  🤍
-# استغـفر ربـك وانت تاخـذ الملفـات النفسـك 🖤، 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozzag"))) 
 async def settings(event):
     if event.sender_id == bot.uid:
@@ -134,13 +129,13 @@ async def settings(event):
                                      "اسماء القنوات َِ🛹", data="chanlan")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozname"))) 
-async def settings(event):  #    قـسـم  الزغرفـة جمـثـون
+async def settings(event):  
     if event.sender_id == bot.uid:
         await event.delete()
         await tgbot.send_message(event.chat_id,
@@ -154,7 +149,7 @@ async def settings(event):  #    قـسـم  الزغرفـة جمـثـون
                                          "║ رجوع ║ ⁦⁩", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"razan")))  
@@ -172,7 +167,7 @@ async def settings(event):  #    قـسـم  الزغرفـة لأسـماء ا�
                                          "║ رجوع ║", data="rozname")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 
@@ -217,9 +212,9 @@ async def settings(event): #    قـسـم  الزغرفـة لأسـماء ال
                                          "║ رجوع ║", data="rozname")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
-# شنو تـدور  :)
+
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"RR7PP1")))
 async def settings(event): #    قـسـم  الزغرفـة لأسـماء البـنات 1
     if event.sender_id == bot.uid:
@@ -258,7 +253,7 @@ async def settings(event):  #    قـسـم  البـايو 1
                                          "⫷ التالي ", data="rozpio2")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio2"))) 
@@ -276,7 +271,7 @@ async def settings(event): #    قـسـم  البـايو 2
                                          "⫷ التالي", data="rozpio3")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio3"))) 
@@ -294,7 +289,7 @@ async def settings(event): #    قـسـم  البـايو 3
                                          "⫷ التالي", data="rozpio4")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio4"))) 
@@ -312,7 +307,7 @@ async def settings(event): #    قـسـم  البـايو 4
                                          "⫷ التالي", data="rozpio5")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio5"))) 
@@ -330,7 +325,7 @@ async def settings(event):#    قـسـم  البـايو 5
                                          "⫷ التالي", data="rozpio1")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozmonth")))  
 async def settings(event): #    قـسم الـمواليـد و الأشـهر
@@ -347,7 +342,7 @@ async def settings(event): #    قـسم الـمواليـد و الأشـهر
                                          "║ رجوع ║", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @jepthon", alert=True)
+        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من @u_gg_u", alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"months")))  
@@ -374,7 +369,7 @@ async def settings(event):#    قـسم  السنـوات  :)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chanlan")))  
-async def settings(event):  # انتهـى  :)  اذا تخـمط تـذكر تعـب غـيرك  :)
+async def settings(event):  
     if event.sender_id == bot.uid:
         await event.delete()
         await tgbot.send_message(event.chat_id, 
