@@ -1,13 +1,8 @@
-#  =============================
-#  == JoKeRUB  -  lMl10l =
-#  =============================
-
-
 import asyncio
 import os
 import re
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
