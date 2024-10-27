@@ -2,8 +2,8 @@ import sys
 import os
 from typing import Any, Dict, List, Union
 from glob import glob
-from JoKeRUB import *
-from JoKeRUB.helpers.functions.functions import translate
+from aliup import *
+from aliup.helpers.functions.functions import translate
 try:
     from yaml import safe_load
 except ModuleNotFoundError:
@@ -15,7 +15,7 @@ languages = {}
 
 
 
-for file in glob("ALJoker/strings/*yml"):
+for file in glob("ali/strings/*yml"):
     if file.endswith(".yml"):
         code = file.split("/")[-1].split("\\")[-1][:-4]
         try:
