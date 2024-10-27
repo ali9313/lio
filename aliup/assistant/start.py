@@ -11,7 +11,7 @@ from aliup.sql_helper.blacklist_assistant import (
     is_he_added,
     removenibba,
 )
-from aliuo.sql_helper.botusers_sql import add_me_in_db, his_userid
+from aliup.sql_helper.botusers_sql import add_me_in_db, his_userid
 from aliup.sql_helper.idadder_sql import (
     add_usersid_in_db,
     already_added,
