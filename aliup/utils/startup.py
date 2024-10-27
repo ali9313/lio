@@ -98,7 +98,7 @@ async def startupmessage():
             Config.CATUBLOGO = await l313l.tgbot.send_file(
                 BOTLOG_CHATID,
                 "l313l/razan/resources/start/alii.JPEG",
-                caption="**‏بــوت تمساح يـعـمـل بـنـجـاح ✓ \n أرسل `.الاوامر`لرؤية اوامر السورس **",
+                caption="**‏بــوت تمساح يـعـمـل بـنـجـاح ✓ \n أرسل `.الاوامر` لرؤية اوامر السورس **",
                 buttons=[(Button.url("سورس التمساح", "https://t.me/u_gg_u"),)],
             )
     except Exception as e:
