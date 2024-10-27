@@ -97,9 +97,9 @@ async def startupmessage():
         if BOTLOG:
             Config.CATUBLOGO = await l313l.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://t.me/MemeSoundJep/24",
-                caption="**‏بــوت ꪖꪶ𝓲 يـعـمـل بـنـجـاح ✓ \n أرسل `.الاوامر`لرؤية اوامر السورس **",
-                buttons=[(Button.url("سورس ꪖꪶ𝓲", "https://t.me/u_gg_u"),)],
+                "l313l/razan/resources/start/alii.JPEG",
+                caption="**‏بــوت تمساح يـعـمـل بـنـجـاح ✓ \n أرسل `.الاوامر`لرؤية اوامر السورس **",
+                buttons=[(Button.url("سورس التمساح", "https://t.me/u_gg_u"),)],
             )
     except Exception as e:
         LOGS.error(e)
@@ -133,7 +133,7 @@ async def startupmessage():
 async def mybot():
     try:
         starkbot = await l313l.tgbot.get_me()
-        ali = "علي"
+        ali = "التمساح"
         bot_name = starkbot.first_name
         botname = f"@{starkbot.username}"
         if bot_name.endswith("Assistant"):
@@ -301,7 +301,7 @@ async def verifyLoggerGroup():
     else:
         descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @u_gg_u"
         photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon.JPEG")
-        botlog_group_id = await ali_the_best(l313l, "مجموعة أشعارات علي")
+        botlog_group_id = await ali_the_best(l313l, "مجموعة أشعارات التمساح")
         if botlog_group_id:
             addgvar("PRIVATE_GROUP_BOT_API_ID", botlog_group_id)
             print("تم العثور على مجموعة المساعدة بالفعل وإضافتها إلى المتغيرات.")
