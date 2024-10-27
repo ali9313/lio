@@ -24,7 +24,7 @@ print("Licensed under the terms of the " + aliup.__license__)
 cmdhr = Config.COMMAND_HAND_LER
 
 try:
-    LOGS.info("جارِ بدء بوت ꪖꪶ𝓲")
+    LOGS.info("جارِ بدء بوت التمساح")
     l313l.loop.run_until_complete(setup_bot())
     LOGS.info("تم اكتمال تنصيب البوت ✓")
 except Exception as e:
@@ -56,7 +56,7 @@ async def startup_process():
     await load_plugins("plugins")
     await load_plugins("assistant")
     print("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
-    print("بـوت ꪖꪶ𝓲 يعمل بنجاح ")
+    print("بـوت التمساح يعمل بنجاح ")
     print(
         f"تم تشغيل الانلاين تلقائياً ارسل {cmdhr}الاوامر لـرؤيـة اوامر السورس\
         \nللمسـاعدة تواصـل  https://t.me/n_u_7"
