@@ -28,7 +28,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 )
             elif ali_PIC:
                 result = builder.document(
-                    JOKER_PIC,
+                    ali_PIC,
                     title="ꪖꪶ𝓲",
                     text=REH,
                     buttons=buttons,
@@ -108,7 +108,7 @@ async def reda(event):
             try:
                 idd = event.peer_id.user_id
                 if idd == 232499688 and not gvarstatus("developer_ali"):
-                    addgvar("developer_aljoker", True)
+                    addgvar("developer_ali", True)
                     await event.reply("اهلا مطوري العزيز 🖤")
                 else:
                     tok = Config.TG_BOT_TOKEN
