@@ -17,7 +17,7 @@ jobs:
          with:
             all_but_latest: true
             access_token: ${{ github.token }}
-       - name: initialization jepthoniq
+       - name: initialization ali9313
          continue-on-error: true
          run: |
            git config --global user.name ${{ secrets.GIT_NAME }}
@@ -28,7 +28,7 @@ jobs:
          continue-on-error: true
          run: |
            git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} ali9313
-       - name: running jepthoniq server
+       - name: running ali9313 server
          timeout-minutes: 350
          continue-on-error: true
          run: |
