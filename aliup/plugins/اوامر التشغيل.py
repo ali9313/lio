@@ -21,7 +21,7 @@ plugin_category = "tools"
 aliDEV = [232499688]
 
 @l313l.ar_cmd(
-    pattern="اعادة تشغيل$",
+    pattern="اعاده تشغيل$",
     command=("اعادة تشغيل", plugin_category),
     info={
         "header": "Restarts the bot !!",
@@ -32,7 +32,7 @@ aliDEV = [232499688]
 async def _(event):
     "Restarts the bot !!"
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "**⌔︙ꪖꪶ𝓲 ↻** \n" "** تم اعادة تشغيل السورس بنجاح ✅ ↻**")
+        await event.client.send_message(BOTLOG_CHATID, "**⌔︙التمساح ↻** \n" "** تم اعادة تشغيل السورس بنجاح ✅ ↻**")
     lMl10l = await edit_or_reply(event, " سيتم اعادة التشغيل انتظر ")
     await event.edit("0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
     await asyncio.sleep(2)
