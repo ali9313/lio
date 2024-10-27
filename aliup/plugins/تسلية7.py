@@ -1,12 +1,8 @@
-# =============================
-# |         JoKeRUB - QHR_1 - lMl10l           |
-# =============================
-
 import os
 
 from telegraph import exceptions, upload_file
 
-from JoKeRUB import l313l
+from aliup import l313l
 
 from ..core.managers import edit_or_reply
 from ..helpers.utils import _cattools, reply_id
