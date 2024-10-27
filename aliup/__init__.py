@@ -14,7 +14,7 @@ __copyright__ = " " + __author__
 
 l313l.version = __version__
 l313l.tgbot.version = __version__
-LOGS = logging.getLogger("jepthon")
+LOGS = logging.getLogger("tmsah")
 bot = l313l
 
 StartTime = time.time()
