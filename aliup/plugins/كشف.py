@@ -15,7 +15,7 @@ from ..core.managers import edit_or_reply
 from ..helpers import get_user_from_event, reply_id
 from . import spamwatch
 
-JEP_EM = Config.ID_EM or "│ ●"
+JEP_EM = Config.ID_EM or "ٴ│ ●"
 ID_EDIT = gvarstatus("ID_ET") or "ايدي"
 
 plugin_category = "utils"
@@ -88,7 +88,7 @@ async def fetch_info(replied_user, event):
         rotbat = "مـالك الحساب 𓀫" 
     else:
         rotbat = "العضـو 𓅫"
-    caption = "┓───────────────┏\n"
+    caption = "ٴ ┓───────────────┏\n"
     caption += f"<b> {JEP_EM}الاسـم  ⇐ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
     caption += f"\n<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
@@ -102,7 +102,7 @@ async def fetch_info(replied_user, event):
         zpre = "𝕍𝕀ℝ𝕋𝕌𝔸𝕃"
     caption += f"<b> {JEP_EM}الحساب ⇐ {zpre} </b>\n"
     caption += f"<b> {JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
-    caption += f"┛───────────────┗"
+    caption += f"ٴ ┛───────────────┗"
     return photo, caption
 
 
