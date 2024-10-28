@@ -8,7 +8,7 @@ from ..core.managers import edit_delete, edit_or_reply
 from ..helpers import get_user_from_event, sanga_seperator
 from ..helpers.utils import _format
 
-plugin_category = "العروض"
+plugin_category = "utils"
 
 
 @l313l.ar_cmd(
