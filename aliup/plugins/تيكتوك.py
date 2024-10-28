@@ -12,51 +12,46 @@ from datetime import timedelta
 import math
 import base64
 from aliup import l313l 
-@l313l.ar_cmd(pattern="تيك")
-async def tiktok_dl(event):
-    ms = event.message.message
-    ms = ms.replace(".تيك", "")
-    if event:
-            if ("https://tiktok.com/" in ms or "https://vm.tiktok.com/" in ms):
-                await event.message.delete()
-                a = await l313l.send_message(event.chat_id, 'يجري البحث عن الملف..')
-                link = ms.strip()
-                try:
-                    response = requests.get(f"https://godownloader.com/api/tiktok-no-watermark-free?url={link}&key=godownloader.com")
-                    data = response.json()
-                    #print(data)
-                    video_link = data["video_no_watermark"]
-                    response = requests.get(video_link)
-                    video_data = response.content
-                    directory = str(round(time.time()))
-                    filename = str(int(time.time()))+'.mp4'
-                    os.mkdir(directory)
-                    video_filename = f"{directory}/{filename}"
-                    with open(video_filename, "wb") as file:
-                        file.write(video_data)
-                
-                except JSONDecodeError:
-                    return await a.edit("الرابط غير صحيح تأكد منه!")
-                except Exception as er:
-                    if 'video_no_watermark' in str(er):
-                        return await a.edit("**رابط الفيديو غير صحيح تأكد منه واعد المحاولة**")
-                    return await a.edit(f"حدث خطأ قم بتوجيه الرسالة الى مطوري @n_u_7\n{er}")
-            
-            
-                
-                await a.edit(f' يجري التحميل للخادم..!\n'
-                   f' يجري الرفع للتلجرام⏳__')
-                start = time.time()
-                title = "فيديو"
-                filesize_bytes = os.path.getsize(video_filename)
-                filesize = filesize_bytes / (1024 * 1024)
-                catid = await reply_id(event.message)
-                await l313l.send_file(
-                   event.chat_id, f"{directory}/{filename}", reply_to=catid,     force_document=False,     caption=f"**الملف : ** {filename}\n**الحجم :**     {round(filesize, 1)} MB"
-                 )
-        
-                await a.delete()
-     
-                shutil.rmtree(directory)
-    #else:
-       # return None
+@l313l.ar_cmd(pattern="تيك(?: |$)(.*)")
+async def zelzal_insta(event):
+    link = event.pattern_match.group(1)
+    reply = await event.get_reply_message()
+    if not link and reply:
+        link = reply.text
+    if not link:
+        return await edit_delete(event, "**- ارسـل (.تيك) + رابـط او بالـرد ع رابـط**", 10)
+    if "tiktok.com" not in link:
+        return await edit_delete(event, "**- احتـاج الـى رابــط من تيـك تـوك .. للتحميــل ؟!**", 10)
+    cap_zzz = f"تم تحميـل مـن تيـك تـوك .. بنجـاح ☑️"
+    chat = "@downloader_tiktok_bot"
+    zed = await edit_or_reply(event, "**⎉╎جـارِ التحميل من تيـك تـوك .. انتظر قليلا ▬▭**")
+    async with borg.conversation(chat) as conv:
+        try:
+            await conv.send_message("/start")
+            await conv.get_response()
+            await conv.send_message(link)
+            zedthon = await conv.get_response()
+            await borg.send_file(
+                event.chat_id,
+                zedthon,
+                caption=cap_zzz,
+                parse_mode="html",
+            )
+            await zed.delete()
+            await asyncio.sleep(2)
+            await event.client(DeleteHistoryRequest(1332941342, max_id=0, just_clear=True))
+        except YouBlockedUserError:
+            await zedub(unblock("downloader_tiktok_bot"))
+            await conv.send_message("/start")
+            await conv.get_response()
+            await conv.send_message(link)
+            zedthon = await conv.get_response()
+            await borg.send_file(
+                event.chat_id,
+                zedthon,
+                caption=cap_zzz,
+                parse_mode="html",
+            )
+            await zed.delete()
+            await asyncio.sleep(2)
+            await event.client(DeleteHistoryRequest(1332941342, max_id=0, just_clear=True))
