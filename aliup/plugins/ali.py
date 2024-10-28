@@ -8,56 +8,56 @@ import requests
 from telethon import Button, events
 from telethon.tl.functions.messages import ExportChatInviteRequest
 from ..core.managers import edit_delete, edit_or_reply
-REH = "** لأستخدام بوت اختراق الحساب عن طريق كود التيرمكس أضغط على الزر**"
-ali_PIC = "https://telegra.ph/file/20c832e3ce8d4ee2abfc9.jpg"
-Bot_Username = Config.TG_BOT_USERNAME
-if Config.TG_BOT_USERNAME is not None and tgbot is not None:
+#REH = "** لأستخدام بوت اختراق الحساب عن طريق كود التيرمكس أضغط على الزر**"
+#ali_PIC = "https://telegra.ph/file/20c832e3ce8d4ee2abfc9.jpg"
+#Bot_Username = Config.TG_BOT_USERNAME
+#if Config.TG_BOT_USERNAME is not None and tgbot is not None:
     
-    @tgbot.on(events.InlineQuery)
-    async def inline_handler(event):
-        builder = event.builder
-        result = None
-        ali = Bot_Username.replace("@", "")
-        query = event.text
-        await bot.get_me()
-        if query.startswith("هاك") and event.query.user_id == bot.uid:
-            buttons = Button.url("• اضغط هنا عزيزي •", f"https://t.me/{ali}")
-            if ali_PIC and ali_PIC.endswith((".jpg", ".png", "gif", "mp4")):
-                result = builder.photo(
-                    ali_PIC, text=REH, buttons=buttons, link_preview=False
+    #@tgbot.on(events.InlineQuery)
+    #async def inline_handler(event):
+        #builder = event.builder
+        #result = None
+        #ali = Bot_Username.replace("@", "")
+        #query = event.text
+        #await bot.get_me()
+        #if query.startswith("هاك") and event.query.user_id == bot.uid:
+            #buttons = Button.url("• اضغط هنا عزيزي •", f"https://t.me/{ali}")
+            #if ali_PIC and ali_PIC.endswith((".jpg", ".png", "gif", "mp4")):
+                #result = builder.photo(
+                    #ali_PIC, text=REH, buttons=buttons, link_preview=False
                 )
-            elif ali_PIC:
-                result = builder.document(
-                    ali_PIC,
-                    title="ꪖꪶ𝓲",
-                    text=REH,
-                    buttons=buttons,
-                    link_preview=False,
+            #elif ali_PIC:
+                #result = builder.document(
+                    #ali_PIC,
+                    #title="ꪖꪶ𝓲",
+                    #text=REH,
+                    #buttons=buttons,
+                    #link_preview=False,
                 )
-            else:
-                result = builder.article(
-                    title="ꪖꪶ𝓲",
-                    text=REH,
-                    buttons=buttons,
-                    link_preview=False,
+            #else:
+                #result = builder.article(
+                    #title="ꪖꪶ𝓲",
+                    #text=REH,
+                    #buttons=buttons,
+                    #link_preview=False,
                 )
-        await event.answer([result] if result else None)
+        #await event.answer([result] if result else None)
 
-@bot.on(admin_cmd(outgoing=True, pattern="هاك"))
-async def repo(event):
-    if event.fwd_from:
-        return
-    lMl10l = Config.TG_BOT_USERNAME
-    if event.reply_to_msg_id:
-        await event.get_reply_message()
-    await bot.send_message(lMl10l, "/hack")
-    response = await bot.inline_query(lMl10l, "هاك")
-    await response[0].click(event.chat_id)
-    await event.delete()
+#@bot.on(admin_cmd(outgoing=True, pattern="هاك"))
+#async def repo(event):
+    #if event.fwd_from:
+        #return
+    #lMl10l = Config.TG_BOT_USERNAME
+    #if event.reply_to_msg_id:
+        #await event.get_reply_message()
+    #await bot.send_message(lMl10l, "/hack")
+    #response = await bot.inline_query(lMl10l, "هاك")
+    #await response[0].click(event.chat_id)
+    #await event.delete()
 
 @l313l.ar_cmd(pattern="اشتراك")
 async def reda(event):
-    ty = event.text
+    #ty = event.text
     ty = ty.replace(".اشتراك", "")
     ty = ty.replace(" ", "")
     if len (ty) < 2:
