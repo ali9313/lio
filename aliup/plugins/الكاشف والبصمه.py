@@ -31,6 +31,7 @@ from ..helpers.utils import _format
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from ..core.managers import edit_delete, edit_or_reply
 from . import BOTLOG, BOTLOG_CHATID, mention
+vocself = False
 
 @l313l.ar_cmd(pattern="تفعيل الكاشف الذكي(?: |$)(.*)")
 async def start_zelzali(event):
