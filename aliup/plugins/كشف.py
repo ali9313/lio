@@ -101,7 +101,7 @@ async def fetch_info(replied_user, event):
     return photo, caption
 
 
-@l313l.ar_cmd(pattern="ايدي(?: |$)(.*)",
+@l313l.ar_cmd(pattern="(ا|ايدي)$",
     command=("ايدي", plugin_category),
     info={
         "header": "لـ عـرض معلومـات الشخـص",
