@@ -21,7 +21,7 @@ plugin_category = "tools"
 aliDEV = [232499688]
 
 @l313l.ar_cmd(
-    pattern="اعاده تشغيل$",
+    pattern="(اعاده تشغيل|اعادة تشغيل|اعاده التشغيل|اعادة التشغيل)$",
     command=("اعادة تشغيل", plugin_category),
     info={
         "header": "Restarts the bot !!",
