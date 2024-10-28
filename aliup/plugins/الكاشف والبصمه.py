@@ -1,4 +1,4 @@
-mport random
+import random
 import asyncio
 import re
 import requests
@@ -30,7 +30,6 @@ from ..core.logger import logging
 from ..helpers.utils import _format
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from ..core.managers import edit_delete, edit_or_reply
-from ..core.logger import logging
 from . import BOTLOG, BOTLOG_CHATID, mention
 
 @l313l.ar_cmd(pattern="تفعيل الكاشف الذكي(?: |$)(.*)")
@@ -141,6 +140,7 @@ async def _(e):
     
 @l313l.ar_cmd(pattern="(تفعيل البصمه الذاتيه|تفعيل البصمه الذاتية|تفعيل البصمة الذاتيه|تفعيل البصمة الذاتية)")
 async def start_datea(event):
+    vocself = False
     global vocself
     if vocself:
         return await edit_or_reply(event, "**⎉╎حفظ البصمه الذاتية التلقائي 🎙**\n**⎉╎مفعلـه .. مسبقـاً ✅**")
