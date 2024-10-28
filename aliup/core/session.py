@@ -15,7 +15,7 @@ loop = None
 if Config.STRING_SESSION:
     session = aljokerPyro(Config.STRING_SESSION, LOGS)
 else:
-    session = "JoKeRUB"
+    session = "aliup"
 
 try:
     l313l = HuReClient(
