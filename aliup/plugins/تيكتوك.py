@@ -22,7 +22,7 @@ async def zelzal_insta(event):
         return await edit_delete(event, "**- ارسـل (.تيك) + رابـط او بالـرد ع رابـط**", 10)
     if "tiktok.com" not in link:
         return await edit_delete(event, "**- احتـاج الـى رابــط من تيـك تـوك .. للتحميــل ؟!**", 10)
-    cap_zzz = f"**تم التحميـل مـن تيـك تـوك .. بنجـاح\n بواسطة سورس التمساح ☑️**"
+    cap_zzz = f"تم التحميـل مـن تيـك تـوك .. بنجـاح\n بواسطة سورس التمساح ☑️"
     chat = "@downloader_tiktok_bot"
     zed = await edit_or_reply(event, "**جـارِ التحميل من تيـك تـوك .. انتظر قليلا ▬▭**")
     async with borg.conversation(chat) as conv:
