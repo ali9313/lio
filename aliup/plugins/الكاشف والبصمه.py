@@ -158,10 +158,16 @@ async def stop_datea(event):
 @l313l.on(events.NewMessage(func=lambda e: e.is_private and (e.audio or e.voice) and e.media_unread))
 async def sddm(event):
     global vocself
-    zelzal = event.sender_id
     if vocself:
-        sender = await event.get_sender()
-        username = f"@{sender.username}" if sender.username else "لا يوجد"
-        chat = await event.get_chat()
-        voc = await event.download_media()
-        await l313l.send_file("me", voc, caption=f"حفـظ البصمه الذاتيه \n**⌔ مࢪحبـاً .. عـزيـزي 🫂\n⌔ تـم حفظ البصمه الذاتية .. تلقائياً ☑️** ❝\n**⌔ معلومـات المـرسـل :-**\n**• الاسم :** {_format.mentionuser(sender.first_name , sender.id)}\n**• اليوزر :** {username}\n**• الايدي :** `{sender.id}`")
+        # التحقق من وجود صلاحية انتهاء (رسالة ذاتية التدمير)
+        if getattr(event.message, 'ttl_period', None):
+            sender = await event.get_sender()
+            username = f"@{sender.username}" if sender.username else "لا يوجد"
+            voc = await event.download_media()
+            await l313l.send_file(
+                "me", voc,
+                caption=f"حفـظ البصمه الذاتيه \n**⌔ مࢪحبـاً .. عـزيـزي 🫂\n⌔ تـم حفظ البصمه الذاتية .. تلقائياً ☑️** ❝\n**⌔ معلومـات المـرسـل :-**\n"
+                        f"**• الاسم :** {_format.mentionuser(sender.first_name, sender.id)}\n"
+                        f"**• اليوزر :** {username}\n"
+                        f"**• الايدي :** `{sender.id}`"
+            )
