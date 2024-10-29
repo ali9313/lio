@@ -6,7 +6,7 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.utils import get_input_location
 from ..sql_helper.globals import gvarstatus
-
+from telethon.tl.types import MessageEntityMentionName
 from aliup import l313l
 from aliup.core.logger import logging
 
