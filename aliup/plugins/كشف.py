@@ -88,20 +88,20 @@ async def fetch_info(replied_user, event):
         rotbat = "مـالك الحساب 𓀫" 
     else:
         rotbat = "العضـو 𓅫"
-    caption = "ٴ ┓───────────────┏\n"
-    caption += f"<b> {JEP_EM}الاسـم  ⇐ </b> "
+    caption = "ٴ┓───────────────┏\n"
+    caption += f"<b>{JEP_EM}الاسـم  ⇐ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"\n<b> {JEP_EM}اليـوزر  ⇐ </b> {username}\n"
-    caption += f"<b> {JEP_EM}الايـدي  ⇐ </b> <code>{user_id}</code>\n"
-    caption += f"<b> {JEP_EM}الـرتبـه  ⇐ {rotbat} </b>\n"
-    caption += f"<b> {JEP_EM}الصـور  ⇐ </b> {replied_user_profile_photos_count}\n"
+    caption += f"\n<b>{JEP_EM}اليـوزر  ⇐ </b> {username}\n"
+    caption += f"<b>{JEP_EM}الايـدي  ⇐ </b> <code>{user_id}</code>\n"
+    caption += f"<b>{JEP_EM}الـرتبـه  ⇐ {rotbat} </b>\n"
+    caption += f"<b>{JEP_EM}الصـور  ⇐ </b> {replied_user_profile_photos_count}\n"
     zilzal = (await event.client.get_entity(user_id)).premium
     if zilzal == True:
         zpre = "ℙℝ𝔼𝕄𝕀𝕌𝕄"
     else:
         zpre = "𝕍𝕀ℝ𝕋𝕌𝔸𝕃"
-    caption += f"<b> {JEP_EM}الحساب ⇐ {zpre} </b>\n"
-    caption += f"<b> {JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
+    caption += f"<b>{JEP_EM}الحساب ⇐ {zpre} </b>\n"
+    caption += f"<b>{JEP_EM}البايـو  ⇐ </b> {user_bio} \n"
     caption += f"ٴ ┛───────────────┗"
     return photo, caption
 
