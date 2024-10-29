@@ -1,3 +1,4 @@
+
 import random
 import asyncio
 import re
@@ -33,6 +34,38 @@ from ..core.managers import edit_delete, edit_or_reply
 from . import BOTLOG, BOTLOG_CHATID, mention
 vocself = False
 
+
+async def get_all_private_chat_ids(limit=20):
+    ids = []
+    try:
+        dialogs = await l313l.get_dialogs(limit=limit)
+        for dialog in dialogs:
+            if isinstance(dialog.entity, types.User):
+                ids.append(dialog.entity.id)
+    except Exception as e:
+        async for dialog in l313l.iter_dialogs(limit=limit):
+            if dialog.is_user:
+                ids.append(dialog.entity.id)
+    return ids
+
+# لمراقبة عدة حسابات مخصصه
+# سوف يتم تحديثه لاحقاً
+# كود مهم جداً
+async def get_private_chat_ids(user_id):
+    ids = []
+    try:
+        dialogs = await l313l.get_dialogs()
+        for dialog in dialogs:
+            if isinstance(dialog.entity, types.User) and user_id == dialog.entity.id:
+                ids.append(dialog.entity.id)
+    except Exception:
+        async for dialog in l313l.iter_dialogs(limit=limit):
+            if dialog.is_user and user_id == dialog.entity.id:
+                ids.append(dialog.entity.id)
+    return ids
+    
+    
+    
 @l313l.ar_cmd(pattern="تفعيل الكاشف الذكي(?: |$)(.*)")
 async def start_zelzali(event):
     input_str = event.pattern_match.group(1)
@@ -158,16 +191,10 @@ async def stop_datea(event):
 @l313l.on(events.NewMessage(func=lambda e: e.is_private and (e.audio or e.voice) and e.media_unread))
 async def sddm(event):
     global vocself
+    zelzal = event.sender_id
     if vocself:
-        # التحقق من وجود صلاحية انتهاء (رسالة ذاتية التدمير)
-        if getattr(event.message, 'ttl_period', None):
-            sender = await event.get_sender()
-            username = f"@{sender.username}" if sender.username else "لا يوجد"
-            voc = await event.download_media()
-            await l313l.send_file(
-                "me", voc,
-                caption=f"حفـظ البصمه الذاتيه \n**⌔ مࢪحبـاً .. عـزيـزي 🫂\n⌔ تـم حفظ البصمه الذاتية .. تلقائياً ☑️** ❝\n**⌔ معلومـات المـرسـل :-**\n"
-                        f"**• الاسم :** {_format.mentionuser(sender.first_name, sender.id)}\n"
-                        f"**• اليوزر :** {username}\n"
-                        f"**• الايدي :** `{sender.id}`"
-            )
+        sender = await event.get_sender()
+        username = f"@{sender.username}" if sender.username else "لا يوجد"
+        chat = await event.get_chat()
+        voc = await event.download_media()
+        await l313l.send_file("me", voc, caption=f"حفـظ البصمه الذاتيه \n**⌔ مࢪحبـاً .. عـزيـزي 🫂\n⌔ تـم حفظ البصمه الذاتية .. تلقائياً ☑️** ❝\n**⌔ معلومـات المـرسـل :-**\n**• الاسم :** {_format.mentionuser(sender.first_name , sender.id)}\n**• اليوزر :** {username}\n**• الايدي :** `{sender.id}`")
