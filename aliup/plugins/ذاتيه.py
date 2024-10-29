@@ -17,23 +17,6 @@ zedself = True
 
 POSC = gvarstatus("Z_POSC") or "(مم|ذاتية|ذاتيه|جلب الوقتيه)"
 
-ZelzalSelf_cmd = (
-    "𓆩 [ᯓ 𝗦𝗼𝘂𝗿𝗰𝗲 𝗭𝗧𝗵𝗼𝗻 - حفـظ الذاتيـه 🧧](t.me/ZedThon) 𓆪\n\n"
-    "**⪼** `.تفعيل الذاتيه`\n"
-    "**لـ تفعيـل الحفظ التلقائي للذاتيـه**\n"
-    "**سوف يقوم حسابك بحفظ الذاتيه تلقائياً في حافظة حسابك عندما يرسل لك اي شخص ميديـا ذاتيـه**\n\n\n"
-    "**⪼** `.تعطيل الذاتيه`\n"
-    "**لـ تعطيـل الحفظ التلقائي للذاتيـه**\n\n\n"
-    "**⪼** `.ذاتيه`\n"
-    "**بالـرد ؏ــلى صـوره ذاتيـه لحفظهـا في حال كان امر الحفظ التلقائي معطـل**\n\n"
-    "\n 𓆩 [𝙎𝙊𝙐𝙍𝘾𝞝 𝙕𝞝𝘿](t.me/ZedThon) 𓆪"
-)
-
-
-@l313l.ar_cmd(pattern="الذاتيه")
-async def cmd(zelzallll):
-    await edit_or_reply(zelzallll, ZelzalSelf_cmd)
-
 @l313l.ar_cmd(pattern=f"{POSC}(?: |$)(.*)")
 async def oho(event):
     if not event.is_reply:
@@ -71,7 +54,7 @@ async def sddm(event):
         sender = await event.get_sender()
         chat = await event.get_chat()
         pic = await event.download_media()
-        await l313l.send_file("me", pic, caption=f"[ᯓ 𝗦𝗼𝘂𝗿𝗰𝗲 𝗭𝗧𝗵𝗼𝗻 - حفـظ الذاتيـه 🧧](t.me/ZEDthon) .\n\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**⌔╎مࢪحبـاً عـزيـزي المـالك 🫂\n⌔╎ تـم حفـظ الذاتيـة تلقائيـاً .. بنجـاح ☑️** ❝\n**⌔╎المـرسـل** {_format.mentionuser(sender.first_name , sender.id)} .")
+        await l313l.send_file("me", pic, caption=f"**⌔╎مࢪحبـاً عـزيـزي المـالك 🫂\n⌔╎ تـم حفـظ الذاتيـة تلقائيـاً .. بنجـاح ☑️** ❝\n**⌔╎المـرسـل** {_format.mentionuser(sender.first_name , sender.id)} .")
 
 @l313l.ar_cmd(
     pattern="تست (\d*) ([\s\S]*)",
